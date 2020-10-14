@@ -1,0 +1,26 @@
+.nav-item a, span, p {
+    font-family: "BPG Nino Mtavruli" !important;
+}
+.nav-item a {
+    font-size: 16px !important;
+}
+.nav-item {
+    cursor: pointer;
+}
+::ng-deep .loginPage .registrationContainer {
+    margin: 0px !important;
+}
+::ng-deep .loginPage .registrationContainer > h1{
+color: white !important;
+}
+::ng-deep .loginPage[chooseType="true"] mat-card h1, ::ng-deep .loginPage[chooseType="true"] mat-card i{
+    color: black !important;
+}
+::ng-deep .loginPopup.popup {
+    width: 540px !important;
+    background-color: transparent !important;
+    grid-template-rows: 30px auto !important;
+}
+::ng-deep .loginPopup.popup i {
+    color: white;
+}

@@ -1,0 +1,96 @@
+<div class="registrationContainer">
+    <i *ngIf="tab == 1 && (registrationType == 0 || registrationType == 1)" class="material-icons regTypeIcon">{{registrationType == 0 ? "person" : "business"}}</i>
+    <h1>{{tab == 0 ? 'შესვლა' : (registrationType == 0 || registrationType ==1) ? 'რეგისტრაცია' : ''}}</h1>
+    <ng-container *ngIf="tab==0">
+      <mat-card>
+        <div style="float: left; width: 50%; padding-right: 20px;">
+          <mat-form-field appearance="outline">
+            <mat-label>ელ. ფოსტა</mat-label>
+            <input matInput placeholder="შეიყვანეთ ელ.ფოსტა">
+          </mat-form-field>
+      </div>
+      <div style="float: left; width: 50%;">
+        <mat-form-field appearance="outline">
+          <mat-label>პაროლი</mat-label>
+          <input matInput placeholder="შეიყვანეთ პაროლი">
+        </mat-form-field>
+       <button class="mat-button" style="background: #f9c42e;color:white" mat-button>შესვლა</button>
+      </div>
+  </mat-card>
+    </ng-container>
+    <ng-container *ngIf="tab==1">
+      <ng-container *ngIf="registrationType != 0 && registrationType != 1">
+        <mat-card style="text-align: center;">
+          <h1 style="font-size:20px; margin-top: 10px;">დარეგისტრირდი</h1>
+          <i class="material-icons chooseEntity" style="margin-right: 70px;" (click)="registrationType = 1">business</i>
+          <i class="material-icons chooseEntity" (click)="registrationType = 0">person</i>
+          <h1 style="font-size:20px; margin-top: 10px;">ბიზნესად ან ფრილანსერად</h1>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngIf="registrationType==0">
+        <mat-card>
+          <div style="float: left; width: 50%; padding-right: 20px;">
+            <mat-form-field appearance="outline">
+              <mat-label>ელ. ფოსტა</mat-label>
+              <input matInput placeholder="შეიყვანეთ ელ.ფოსტა">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>სახელი გვარი</mat-label>
+              <input matInput placeholder="შეიყვანეთ სახელი და გვარი">
+            </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>პირადი ნომერი</mat-label>
+                <input matInput placeholder="შეიყვანეთ პირადი ნომერი">
+              </mat-form-field>
+        </div>
+        <div style="float: left; width: 50%;">
+          <mat-form-field appearance="outline">
+            <mat-label>პაროლი</mat-label>
+            <input matInput placeholder="შეიყვანეთ პაროლი">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>გაიმეორეთ პაროლი</mat-label>
+            <input matInput placeholder="შეიყვანეთ განმეორებით პაროლი">
+          </mat-form-field>
+              <button class="mat-button" style="background: #f9c42e;color:white" mat-button>რეგისტრაცია</button>
+        </div>
+    </mat-card>
+    </ng-container>
+    <ng-container *ngIf="registrationType==1">
+    <mat-card>
+    <div style="float: left; width: 50%; padding-right: 20px;">
+        <mat-form-field appearance="outline">
+            <mat-label>კომპანიის დასახელება</mat-label>
+            <input matInput placeholder="შეიყვანეთ კომპანიის დასახელება">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>მაგ. შ </mat-hint> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>საიდენტიფიკაციო ნომერი</mat-label>
+            <input matInput placeholder="შეიყვანეთ საიდენტიფიკაციო ნომერი">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>სამართლებრივი ფორმა</mat-label>
+            <input matInput placeholder="">
+          </mat-form-field>
+    </div>
+    <div style="float: left; width: 50%;">
+      <mat-form-field appearance="outline">
+        <mat-label>ელ. ფოსტა</mat-label>
+        <input matInput placeholder="შეიყვანეთ ელ.ფოსტა">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>პაროლი</mat-label>
+        <input matInput placeholder="შეიყვანეთ პაროლი">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>გაიმეორეთ პაროლი</mat-label>
+        <input matInput placeholder="შეიყვანეთ განმეორებით პაროლი">
+      </mat-form-field>
+          <button class="mat-button" style="background: #f9c42e;color:white" mat-button>რეგისტრაცია</button>
+    </div>
+</mat-card>
+</ng-container>
+</ng-container>
+
+</div>

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" [ngClass]="headerClass" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" (click)="GoHome()">CloudWork</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger">მოძებნე სამუშაო</a></li>
+                <span [ngClass]="headerClass" style="border-left:1px solid var(--nav-txt-color); border-right: 1px solid var(--nav-txt-color);"></span>
+                <li class="nav-item" (click)="showLogin = true; loginTab=1; regType = 2"><a class="nav-link js-scroll-trigger">რეგისტრაცია</a></li>
+                <li class="nav-item" (click)="showLogin = true; loginTab=0;"><a class="nav-link js-scroll-trigger">შესვლა</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<popup [(visible)]="showLogin" class="loginPopup" [setClass]="'loginPopup'">
+    <p-header></p-header>
+    <p-content>
+        <app-login class="loginPage" [attr.chooseType]="regType != 0 && regType != 1" [tab]="loginTab" [registrationType]="regType"></app-login>
+    </p-content>
+</popup>
