@@ -1,6 +1,9 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { getuid } from 'process';
+import { Authuser } from 'src/app/common/authuser';
+import { CommonService } from 'src/app/common/common.service';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -24,10 +27,27 @@ export class HeaderComponent implements OnInit {
   }
   loginTab:number = 0;
   regType:number = 0;
-  
-  constructor(private router:Router, public dialog: MatDialog) { }
+  authUser = Authuser;
+  fullNameInitials:string = "";
+  constructor(private router:Router, private commonService:CommonService) { 
+    
+  }
 
   ngOnInit(): void {
+    console.log(Authuser.token);
+    console.log(Authuser.fullName);
+    this.getUserInitials();
+  }
+  async getUserInitials() {
+    if (Authuser.userLoggedIn()) {
+      await Authuser.getUserData(); 
+      var fullname = Authuser.fullName.toString();
+      var split = fullname.split(" ");
+      this.fullNameInitials = split[0][0] + "." + split[1][0];
+    }
+  }
+  logout() {
+    Authuser.logout();
   }
   openDialog() {
     

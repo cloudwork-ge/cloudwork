@@ -12,7 +12,8 @@ export class Registration {
   public fullName:string;
   public phone:string = "";
   public tin:string;
-  public type:UserTypes;
+  public userType:UserTypes;
+  public samformaType:number;
 }
 export enum UserTypes {
   Freelancer,

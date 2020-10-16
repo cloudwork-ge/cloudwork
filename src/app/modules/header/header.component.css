@@ -10,7 +10,7 @@
 ::ng-deep .loginPage .registrationContainer {
     margin: 0px !important;
 }
-::ng-deep .loginPage .registrationContainer > h1{
+::ng-deep .loginPage .registrationContainer h1{
 color: white !important;
 }
 ::ng-deep .loginPage[chooseType="true"] mat-card h1, ::ng-deep .loginPage[chooseType="true"] mat-card i{
@@ -23,4 +23,12 @@ color: white !important;
 }
 ::ng-deep .loginPopup.popup i {
     color: white;
+}
+.profileCircle {
+    padding: 15px;
+    border: 2px solid #f5623a;
+    border-radius: 140px;
+    position: absolute;
+    top: 8px;
+    background: rgba(255,255,255,0.7);
 }

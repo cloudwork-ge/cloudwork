@@ -5,9 +5,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger">მოძებნე სამუშაო</a></li>
-                <span [ngClass]="headerClass" style="border-left:1px solid var(--nav-txt-color); border-right: 1px solid var(--nav-txt-color);"></span>
-                <li class="nav-item" (click)="showLogin = true; loginTab=1; regType = 2"><a class="nav-link js-scroll-trigger">რეგისტრაცია</a></li>
-                <li class="nav-item" (click)="showLogin = true; loginTab=0;"><a class="nav-link js-scroll-trigger">შესვლა</a></li>
+                <span *ngIf="!authUser.userLoggedIn()" [ngClass]="headerClass" style="border-left:1px solid var(--nav-txt-color); border-right: 1px solid var(--nav-txt-color);"></span>
+                <li class="nav-item" *ngIf="!authUser.userLoggedIn()" (click)="showLogin = true; loginTab=1; regType = 2"><a class="nav-link js-scroll-trigger">რეგისტრაცია</a></li>
+                <li class="nav-item" *ngIf="!authUser.userLoggedIn()" (click)="showLogin = true; loginTab=0;"><a class="nav-link js-scroll-trigger">შესვლა</a></li>
+                <li class="nav-item" *ngIf="authUser.userLoggedIn()">
+                    <div class="profileCircle" (click)="logout(); navigate('Profile')">{{fullNameInitials}}</div>
+                </li>
             </ul>
         </div>
     </div>

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CommonService } from 'src/app/common/common.service';
+import { LoginCredentials, Registration } from 'src/app/models/user.model';
 
 @Component({
   selector:"app-login",
@@ -8,7 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private acRoute:ActivatedRoute) { 
+  constructor(private acRoute:ActivatedRoute, private commonService:CommonService) { 
     this.acRoute.params.subscribe((params:any) => {
       if (params["tab"] != null) {
         if (params["tab"] > 0) this.tab = 1;
@@ -23,8 +25,16 @@ export class LoginComponent implements OnInit {
   }
   @Input() tab:number = 0; // 0 შესვლა, 1 რეგისტრაცია
   @Input() registrationType:number = 0; //0 ფრილანსერი, 1 კომპანია, თუ არც 0 არც 1 მაშინ აირჩიოს რეგისტრაციის ტიპი
-
+  
+  userRegistration:Registration = new Registration();
+  userLogin:LoginCredentials = new LoginCredentials();
   ngOnInit(): void {
+  }
+  login() {
+    this.commonService.authenticate("Users/Authenticate",this.userLogin)    
+  }
+  register() {
+    this.commonService.register("Users/Register",this.userRegistration);
   }
 
 }

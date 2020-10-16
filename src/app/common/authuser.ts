@@ -2,7 +2,9 @@ import { CanActivate, CanDeactivate, CanActivateChild, Router, ActivatedRouteSna
 import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 import { AppInjector } from './appinjector';
-import { UserRegistration } from '../modules/models/user.model';
+import { Registration } from '../models/user.model';
+import { HttpClient } from '@angular/common/http';
+
 
 // import {InjectorInstance} from './app.module';
 export class bxWorkgroup {
@@ -66,41 +68,29 @@ export class Authuser {
         return this.checkBxUser();
     }
 
-   static getUserData(onSuccess:Function = null, forceGet:boolean = false) {
+   static async getUserData(onSuccess:Function = null, forceGet:boolean = false) {
 
         if (this.token.length == 0) return;
         if (Authuser.fullName && Authuser.fullName.length > 0 && !forceGet) {
-            onSuccess(Authuser);
-            return;
+            if (onSuccess != null) {
+                onSuccess(Authuser);
+                return;
+            }
         }
 
         var commonService = AppInjector.get(CommonService);
-        commonService.post("Users/GetUserData",null, 
-        (data) => {
-            Authuser.fullName = data.DATA.userData.fullName;
-            if (data.DATA.bx_data != null && data.DATA.bx_data.access_token != null)
-            {
-                commonService.setBXToken(data.DATA.bx_data.access_token);
-            }
-            if (Authuser.bxUserID > 0) {}
-            else this.getBxUserData();
-            
-            if (onSuccess != null) onSuccess(data.DATA.userData);
+        var http = AppInjector.get(HttpClient);
+    
+        var headers = commonService.getHttpOptions();
+        await http.post(commonService.baseUrl + "Users/GetUserData",null,headers).toPromise().then((data) => {
+            Authuser.fullName = data["rootElement"]["DATA"].userData.fullName;
+            if (onSuccess != null) onSuccess(data["rootElement"]["DATA"].userData);
 
-        }, (err) => {
+        }, 
+        (err) => {
             commonService.clearCookies();
             location.reload();
-        },false);
-    }
-
-    static getBxUserData() {
-        if (this.bxToken.length == 0) return;
-
-        var commonService = AppInjector.get(CommonService);
-        commonService.getBX("user.current",{},(data) => {
-            commonService.setCookie("bxID",data.result.ID);
-        });
-
+        })
     }
 
     static getUserModules() {
@@ -131,6 +121,6 @@ export class Module {
     public iconType:string;
     public url:string;
 }
-export class UserData extends UserRegistration {
+export class UserData extends Registration {
     
 }

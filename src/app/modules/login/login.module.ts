@@ -6,6 +6,8 @@ import { LoginComponent } from './login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { CommonService } from 'src/app/common/common.service';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   exports:[
     LoginComponent

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { Authuser } from '../common/authuser';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AccessGuard implements CanActivate {
   canActivate(route:ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const requiresLogin = route.data.requiresLogin || false;
     const requiresLogout = route.data.requiresLogout || false;
+
     if (requiresLogin) {
       // Check that the user is logged in...
       if (this.userLoggedIn())
@@ -27,9 +29,8 @@ export class AccessGuard implements CanActivate {
     }
     return true;
   }
-
   userLoggedIn() {
-    if (this.cookie != null && this.cookie.get("accessToken"))
+    if (Authuser.token.length > 0)
       return true;
     else
       return false;

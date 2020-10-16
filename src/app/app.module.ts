@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +14,22 @@ import {MatCardModule} from '@angular/material/card';
 import { HeaderModule } from './modules/header/header.module';
 import { PopupModule } from './components/popup/popup.module';
 import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
+import { LandingModule } from './modules/landing/landing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { setAppInjector } from './common/appinjector';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthTest1Component,
-    LandingComponent
+    LoaderComponent,
+    ModalComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +37,16 @@ import { ClickStopPropagationDirective } from './directives/click-stop-propagati
     BrowserAnimationsModule,
     LoginModule,
     HeaderModule,
-    PopupModule
+    PopupModule,
+    LandingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AccessGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(injector:Injector) {
+    setAppInjector(injector);
+  }
+}
