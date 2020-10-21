@@ -12,7 +12,7 @@ export class Registration {
   public fullName:string;
   public phone:string = "";
   public tin:string;
-  public userType:UserTypes;
+  public userType:UserTypes = UserTypes.Freelancer;
   public samformaType:number;
 }
 export enum UserTypes {

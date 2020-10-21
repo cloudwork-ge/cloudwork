@@ -13,12 +13,11 @@ export class CommonService {
   }
   get baseUrl():string {
     if (location.href.includes("localhost")) {
-    // return "https://apiants.azurewebsites.net/";;
+      // return "https://cloudworkapi.azurewebsites.net/";
     return "https://localhost:3413/";
     }
     else 
-    return "https://abcd.com/";
-    // return "http://antsge-001-site1.ctempurl.com/";
+    return "https://cloudworkapi.azurewebsites.net/";
   };
   
   private httpOptions:Object = {};

@@ -13,7 +13,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>პაროლი</mat-label>
-          <input matInput [(ngModel)]="userLogin.password" placeholder="შეიყვანეთ პაროლი">
+          <input matInput type="password" [(ngModel)]="userLogin.password" placeholder="შეიყვანეთ პაროლი">
         </mat-form-field>
         <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="login()">შესვლა</button>
       </div>
@@ -54,11 +54,11 @@
         <div style="float: left; width: 50%;">
           <mat-form-field appearance="outline">
             <mat-label>პაროლი</mat-label>
-            <input matInput [(ngModel)]="userRegistration.password" placeholder="შეიყვანეთ პაროლი">
+            <input matInput type="password" [(ngModel)]="userRegistration.password" placeholder="შეიყვანეთ პაროლი">
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>გაიმეორეთ პაროლი</mat-label>
-            <input matInput [(ngModel)]="userRegistration.confirmPassword" placeholder="შეიყვანეთ განმეორებით პაროლი">
+            <input matInput type="password" [(ngModel)]="userRegistration.confirmPassword" placeholder="შეიყვანეთ განმეორებით პაროლი">
           </mat-form-field>
           <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="register()">რეგისტრაცია</button>
         </div>
@@ -89,11 +89,11 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>პაროლი</mat-label>
-            <input matInput [(ngModel)]="userRegistration.password" placeholder="შეიყვანეთ პაროლი">
+            <input matInput type="password" [(ngModel)]="userRegistration.password" placeholder="შეიყვანეთ პაროლი">
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>გაიმეორეთ პაროლი</mat-label>
-            <input matInput [(ngModel)]="userRegistration.confirmPassword" placeholder="შეიყვანეთ განმეორებით პაროლი">
+            <input matInput type="password" [(ngModel)]="userRegistration.confirmPassword" placeholder="შეიყვანეთ განმეორებით პაროლი">
           </mat-form-field>
           <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="register()">რეგისტრაცია</button>
         </div>

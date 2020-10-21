@@ -1,4 +1,4 @@
 {
     "appService.defaultWebAppToDeploy": "/subscriptions/1fe9723c-be8c-4dd7-9385-639f41b36e09/resourceGroups/AntsGroup/providers/Microsoft.Web/sites/cloudworkge",
-    "appService.deploySubpath": "dist"
+    "appService.deploySubpath": "dist/cloudwork"
 }

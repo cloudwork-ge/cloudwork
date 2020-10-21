@@ -13,7 +13,9 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
   @HostListener("window:scroll") onScroll(e:Event): void {
-    if (!this.transparentWhenTop) return;
+    if (!this.transparentWhenTop) {
+      return;
+    }
 
     if (window.scrollY > 10) this.headerClass = "navbar-scrolled"
     else this.headerClass = "";
@@ -33,13 +35,17 @@ export class HeaderComponent implements OnInit {
   fullNameInitials:string = "";
 
   @Input() transparentWhenTop:boolean = false;
+  @Input() showSearchBar:boolean = true;
   constructor(private router:Router, private commonService:CommonService) { 
-    if (!this.transparentWhenTop) this.headerClass = "navbar-scrolled";
+
   }
 
   ngOnInit(): void {
-    console.log(Authuser.token);
-    console.log(Authuser.fullName);
+    if (!this.transparentWhenTop) this.headerClass = "navbar-scrolled";
+    else this.headerClass = "";
+    
+    // console.log(Authuser.token);
+    // console.log(Authuser.fullName);
     this.getUserInitials();
   }
   async getUserInitials() {

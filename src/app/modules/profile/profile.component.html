@@ -1,10 +1,10 @@
-<app-header [transparentWhenTop]="false"></app-header>
+<app-header></app-header>
 <main class="centerArea">
     <div class="profileContainer">
         <img class="profilePicture" src="../../../assets/img/portfolio/fullsize/1.jpg" />
         <div class="nameContainer">
-            <p class="name">გიორგი მჭედლიშვილი</p>
-            <p class="email">testt@test.com</p>
+            <p class="name">{{currentUser.fullname}}</p>
+            <p class="email">{{currentUser.email}}</p>
             <p class="description">bsydgoyuahbhoivfoyabilhfvooagilbhjibaf hou fohagoyu gohfg aog ohifb ahg fouy oyfvv aohv ofshuv osav ouv dos</p>
         </div>
     </div>
