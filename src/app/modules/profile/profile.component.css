@@ -1,0 +1,38 @@
+.centerArea {
+    height: 100%;
+    width: 1024px;
+    padding-top: 20px;
+    margin: auto;
+    margin-top: 75px;
+}
+.profilePicture {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 250px;
+    float: left ;
+}
+.nameContainer {
+    float: left;
+    width: 600px;
+    padding: 10px 20px;
+}
+.nameContainer p {
+    padding: 0;
+    margin:0;
+}
+.nameContainer p.name {
+    font-family: FiraGO-Medium;
+    font-size: 19px;
+}
+
+.nameContainer p.email {
+    font-size: 13px;
+    color: var(--blue);
+}
+.nameContainer p.description {
+    margin-top: 20px;
+}
+p {
+    font-family: FiraGO-Book;
+}

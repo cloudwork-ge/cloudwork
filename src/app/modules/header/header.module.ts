@@ -6,16 +6,17 @@ import { LoginModule } from '../login/login.module';
 import { LoginComponent } from '../login/login.component';
 import { PopupComponent } from 'src/app/components/popup/popup.component';
 import { PopupModule } from 'src/app/components/popup/popup.module';
+import { SearchbarComponent } from 'src/app/components/searchbar/searchbar.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent,SearchbarComponent],
   imports: [
     CommonModule,
     MatDialogModule,
     PopupModule,
-    LoginModule
+    LoginModule,
   ],
   exports: [HeaderComponent]
 })

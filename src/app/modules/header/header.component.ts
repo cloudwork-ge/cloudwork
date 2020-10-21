@@ -13,6 +13,8 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
   @HostListener("window:scroll") onScroll(e:Event): void {
+    if (!this.transparentWhenTop) return;
+
     if (window.scrollY > 10) this.headerClass = "navbar-scrolled"
     else this.headerClass = "";
   }
@@ -29,8 +31,10 @@ export class HeaderComponent implements OnInit {
   regType:number = 0;
   authUser = Authuser;
   fullNameInitials:string = "";
+
+  @Input() transparentWhenTop:boolean = false;
   constructor(private router:Router, private commonService:CommonService) { 
-    
+    if (!this.transparentWhenTop) this.headerClass = "navbar-scrolled";
   }
 
   ngOnInit(): void {

@@ -91,7 +91,6 @@ html {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@charset "UTF-8";
 /*!
 * Start Bootstrap - Creative v6.0.3 (https://startbootstrap.com/themes/creative)
 * Copyright 2013-2020 Start Bootstrap
@@ -10302,4 +10301,12 @@ span.navbar-scrolled {
     background-size: 100px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.centerArea {
+  height: 100%;
+  width: 1105px;
+  padding-top: 20px;
+  margin: auto;
+  margin-top: 75px;
 }
