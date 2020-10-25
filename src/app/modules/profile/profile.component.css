@@ -36,3 +36,22 @@
 p {
     font-family: FiraGO-Book;
 }
+.bottomContainer {
+    float: left;
+    margin-top: 40px;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.bottomContainer > div {
+    /* display: inline-flex;÷ */
+    width: 33%;
+}
+.bottomContainer > div > p:first-child {
+    font-weight: bold;
+    font-family: FiraGO-Regular;
+}
+.bottomContainer > div > p {
+    margin: 0;
+}
