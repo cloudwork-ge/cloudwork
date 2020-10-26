@@ -21,6 +21,9 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { setAppInjector } from './common/appinjector';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { ProfileModule } from './modules/profile/profile.module';
+import { AddProjectComponent } from './modules/add-project/add-project.component';
+import { AddProjectModule } from './modules/add-project/add-project.module';
 
 
 @NgModule({
@@ -28,8 +31,7 @@ import { ProfileComponent } from './modules/profile/profile.component';
     AppComponent,
     AuthTest1Component,
     LoaderComponent,
-    ModalComponent,
-    ProfileComponent
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,9 @@ import { ProfileComponent } from './modules/profile/profile.component';
     PopupModule,
     LandingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProfileModule,
+    AddProjectModule
   ],
   providers: [AccessGuard],
   bootstrap: [AppComponent]

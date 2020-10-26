@@ -21,17 +21,25 @@
     padding: 0;
     margin:0;
 }
-.nameContainer p.name {
+::ng-deep .nameContainer .name * {
     font-family: FiraGO-Medium;
     font-size: 19px;
 }
-
-.nameContainer p.email {
+::ng-deep p-label p {
+    margin: 0;
+}
+p-label {
+    display: flex;
+}
+.nameContainer .email {
     font-size: 13px;
     color: var(--blue);
 }
-.nameContainer p.description {
+.nameContainer .description {
     margin-top: 20px;
+}
+::ng-deep .nameContainer .description input {
+    width: 550px;
 }
 p {
     font-family: FiraGO-Book;
@@ -48,10 +56,14 @@ p {
     /* display: inline-flex;÷ */
     width: 33%;
 }
-.bottomContainer > div > p:first-child {
+.bottomContainer > div > p {
     font-weight: bold;
     font-family: FiraGO-Regular;
 }
 .bottomContainer > div > p {
     margin: 0;
+}
+::ng-deep p-label input {
+    background: rgba(255,255,255,0.4);
+    border: 1px solid #bbb;
 }

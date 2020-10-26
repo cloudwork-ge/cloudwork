@@ -1,3 +1,6 @@
 .editBtn {
     background: #1692ff;
 }
+p, input {
+    font-family: FiraGO-Regular;
+}

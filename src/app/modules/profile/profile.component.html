@@ -3,24 +3,31 @@
     <div class="profileContainer">
         <img class="profilePicture" src="../../../assets/img/portfolio/fullsize/1.jpg" />
         <div class="nameContainer">
-            <p class="name">{{currentUser.fullname}}</p>
+            <p-label class="name" [(ngModel)]="currentUser.fullname" [editingDirection]="'horizontal'" [editing]="editing" [editControls]="false"></p-label>
+            <!-- <p class="name">{{currentUser.fullname}} -->
+                <!-- <span style="font-size: 13px;float: right;">&nbsp;&nbsp;&nbsp;&nbsp; მომხმარებლის ტიპი: {{currentUser.userTypeTxt}}</span> -->
+            <!-- </p> -->
             <p class="email">{{currentUser.email}}</p>
-            <p class="description">bsydgoyuahbhoivfoyabilhfvooagilbhjibaf hou fohagoyu gohfg aog ohifb ahg fouy oyfvv aohv ofshuv osav ouv dos</p>
+            <p-label class="description" placeholder="შეიყვანეთ აღწერა" [(ngModel)]="currentUser.description" [editControls]="false" [editing]="editing">bsydgoyuahbhoivfoyabilhfvooagilbhjibaf hou fohagoyu gohfg aog ohifb ahg fouy oyfvv aohv ofshuv osav ouv dos</p-label>
+        </div>
+        <div style="margin-bottom:40px">
+            <button *ngIf="!editing" class="mat-button" style="background: #f9c42e;color: white;height: 50px;width: 160px;" mat-button (click)="editing = true">შეცვლა</button>
+            <button *ngIf="editing" class="mat-button" style="background: var(--green);color: white;height: 50px;width: 160px;" mat-button (click)="saveProfile()">შენახვა</button>
         </div>
         <div class="bottomContainer">
             <div>
+                <span class="material-icons" style="float: left;width: 60px;font-size: 55px;margin-top: -3px;">person</span>
                 <p>პირადი ნომერი</p>
-                <p>12345678910</p>
+                <p-label [(ngModel)]="currentUser.tin" [editControls]="false" [editing]="editing"></p-label>
             </div>
             <div>
                 <p>საქმიანობის სფერო</p>
-                <p>პროგრამისტი</p>
+                <p-label [(ngModel)]="currentUser.workType" [editControls]="false" [editing]="editing"></p-label>
             </div>
             <div>
-                <span class="material-icons" style="
-                        float: left;width: 60px;font-size: 55px;">payment</span>
+                <span class="material-icons" style="float: left;width: 60px;font-size: 55px;margin-top: -3px;">payment</span>
                 <p>საბანკო რეკვიზიტები</p>
-                <p>GE12334567810</p>
+                <p-label [(ngModel)]="currentUser.bankNumber" [editControls]="false" [editing]="editing"></p-label>
             </div>
         </div>
     </div>

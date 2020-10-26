@@ -44,8 +44,8 @@ export class PLabelComponent implements OnInit {
   @Input() editControls:boolean = true;
   initialNgModel:any = "";
   
-  @Input() autoFocus:boolean = true;
-
+  @Input() autoFocus:boolean = false;
+  @Input() placeholder:string = "დასახელება";
   constructor() { 
     
   }
@@ -54,6 +54,9 @@ export class PLabelComponent implements OnInit {
 
   ngOnInit(): void {
     this.initialNgModel = this.ngModel;
+    if (this.editControls == false) {
+      this.editingDirection = "horizontal";
+    }
     // const x = new Subject<boolean>();
     // x.next(this.editing);
     this.editingBh.subscribe(value => {
