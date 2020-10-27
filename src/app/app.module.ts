@@ -31,7 +31,7 @@ import { AddProjectModule } from './modules/add-project/add-project.module';
     AppComponent,
     AuthTest1Component,
     LoaderComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

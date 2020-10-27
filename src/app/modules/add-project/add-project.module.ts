@@ -8,7 +8,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { UserDateAdapter } from 'src/app/common/user-date-adapter/user-date-adapter.component';
 
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -21,6 +26,11 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-  ]
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
+  ],
+  providers: [{ provide: DateAdapter, useClass: UserDateAdapter },]
 })
 export class AddProjectModule { }

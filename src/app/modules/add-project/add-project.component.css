@@ -4,4 +4,15 @@ mat-card {
     padding: 30px 50px;
     width: 600px;
     margin: auto;
+    margin-bottom: 30px;
+    box-shadow: none !important;
+}
+mat-accordion {
+    margin: auto;
+    width: 650px;
+    display: block;
+    /* background:transparent; */
+}
+mat-panel-title {
+    font-family: BPG Nino Mtavruli;
 }

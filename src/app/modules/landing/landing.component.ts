@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, NgZone, OnInit, ViewChild } from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './landing.component.html',
@@ -7,7 +8,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { 
+  constructor(private router:Router) { 
     
   }
   showLogin:boolean = false;
@@ -15,5 +16,8 @@ export class LandingComponent implements OnInit {
   regType:number = 0;
   ngOnInit(): void {
 
+  }
+  navigate(url:string) {
+    this.router.navigate([url]);
   }
 }
