@@ -34,6 +34,10 @@ export class LoginComponent implements OnInit {
     this.commonService.authenticate("Users/Authenticate",this.userLogin)    
   }
   register() {
+    if (!this.userRegistration.acceptTermsCondition) {
+      alert("გთხოვთ დაეთანხმეთ წესებს და პირობებს");
+      return;
+    }
     this.commonService.register("Users/Register",this.userRegistration);
   }
 

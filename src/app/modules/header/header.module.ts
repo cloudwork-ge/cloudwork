@@ -7,17 +7,20 @@ import { LoginComponent } from '../login/login.component';
 import { PopupComponent } from 'src/app/components/popup/popup.component';
 import { PopupModule } from 'src/app/components/popup/popup.module';
 import { SearchbarComponent } from 'src/app/components/searchbar/searchbar.component';
+import { ClickOutsideDirective } from 'src/app/directives/click-outside-element.directive';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent,SearchbarComponent],
+  declarations: [HeaderComponent,SearchbarComponent, ClickOutsideDirective],
   imports: [
     CommonModule,
     MatDialogModule,
     PopupModule,
     LoginModule,
+    MatIconModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, MatIconModule]
 })
 export class HeaderModule { }

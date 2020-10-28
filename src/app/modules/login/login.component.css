@@ -57,3 +57,8 @@ mat-form-field {
   display: flex;
   text-align: center;
 }
+mat-checkbox {
+  float: right;
+  font-size: 13px;
+  margin-top: 20px;
+}

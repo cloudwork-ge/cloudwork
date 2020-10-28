@@ -24,6 +24,7 @@ import { ProfileComponent } from './modules/profile/profile.component';
 import { ProfileModule } from './modules/profile/profile.module';
 import { AddProjectComponent } from './modules/add-project/add-project.component';
 import { AddProjectModule } from './modules/add-project/add-project.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { AddProjectModule } from './modules/add-project/add-project.module';
     AppComponent,
     AuthTest1Component,
     LoaderComponent,
-    ModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

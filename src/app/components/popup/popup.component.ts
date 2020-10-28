@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @Component({
@@ -42,6 +42,8 @@ export class PopupComponent implements OnInit {
   @Output() visibleChange:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Output() onHide:EventEmitter<any> = new EventEmitter<any>();
+
+  @ViewChild("popupElement",{static:false}) popupElement:ElementRef;
 
   ngOnInit(): void {
     var html = document.getElementById("darkbg");

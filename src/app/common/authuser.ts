@@ -2,7 +2,7 @@ import { CanActivate, CanDeactivate, CanActivateChild, Router, ActivatedRouteSna
 import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 import { AppInjector } from './appinjector';
-import { Registration } from '../models/user.model';
+import { Registration, UserTypes } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -49,6 +49,7 @@ export class Authuser {
 
     public static modules:Module[];
     public static isAdmin:boolean = null;
+    public static userType:UserTypes = UserTypes.Freelancer;
     static deactivateWorkgroup() {
         this.workgroup = new bxWorkgroup();
     }
@@ -84,6 +85,7 @@ export class Authuser {
         var headers = commonService.getHttpOptions();
         await http.post(commonService.baseUrl + "Users/GetUserData",null,headers).toPromise().then((data) => {
             Authuser.fullName = data["rootElement"]["DATA"].userData.fullName;
+            Authuser.userType = data["rootElement"]["DATA"].userData.userType;
             if (onSuccess != null) onSuccess(data["rootElement"]["DATA"].userData);
 
         }, 

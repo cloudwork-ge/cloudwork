@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { CommonService } from 'src/app/common/common.service';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { CommonService } from 'src/app/common/common.service';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   exports:[
     LoginComponent

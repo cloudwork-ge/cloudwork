@@ -50,6 +50,10 @@
             <mat-label>პირადი ნომერი</mat-label>
             <input matInput [(ngModel)]="userRegistration.tin" placeholder="შეიყვანეთ პირადი ნომერი">
           </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>მობილურის ნომერი</mat-label>
+            <input matInput [(ngModel)]="userRegistration.phone" placeholder="შეიყვანეთ ნომერი">
+          </mat-form-field>
         </div>
         <div style="float: left; width: 50%;">
           <mat-form-field appearance="outline">
@@ -62,6 +66,7 @@
           </mat-form-field>
           <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="register()">რეგისტრაცია</button>
         </div>
+        <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="#">წესებს და პირობებს</a></mat-checkbox>
       </mat-card>
     </ng-container>
     <ng-container *ngIf="registrationType==1">
@@ -79,7 +84,28 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>სამართლებრივი ფორმა</mat-label>
-            <input matInput [(ngModel)]="userRegistration.samformaType" placeholder="">
+            <mat-select [(ngModel)]="userRegistration.samformaType">
+              <mat-option value="შპს">
+                შპს
+                </mat-option>
+                <mat-option value="ინდ. მეწარმე">
+                  ინდ. მეწარმე
+                </mat-option>
+                <mat-option value="სააქციო საზოგადოება">
+                  სააქციო საზოგადოება
+                </mat-option>
+                <mat-option value="ააიპ">
+                  ააიპ                  
+                </mat-option>
+                <mat-option value="სხვა">
+                  სხვა
+                </mat-option>
+            </mat-select>
+            <!-- <input matInput [(ngModel)]="userRegistration.samformaType" placeholder=""> -->
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>მობილურის ნომერი</mat-label>
+            <input matInput [(ngModel)]="userRegistration.phone" placeholder="შეიყვანეთ ნომერი">
           </mat-form-field>
         </div>
         <div style="float: left; width: 50%;">
@@ -97,6 +123,7 @@
           </mat-form-field>
           <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="register()">რეგისტრაცია</button>
         </div>
+        <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="#">წესებს და პირობებს</a></mat-checkbox>
       </mat-card>
     </ng-container>
   </ng-container>

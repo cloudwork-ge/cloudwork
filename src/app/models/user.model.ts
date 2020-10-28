@@ -13,7 +13,8 @@ export class Registration {
   public phone:string = "";
   public tin:string;
   public userType:UserTypes = UserTypes.Freelancer;
-  public samformaType:number;
+  public samformaType:string;
+  public acceptTermsCondition:boolean =false;
 }
 export enum UserTypes {
   Freelancer,

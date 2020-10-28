@@ -54,7 +54,8 @@ p {
 }
 .bottomContainer > div {
     /* display: inline-flex;÷ */
-    width: 33%;
+    /* width: 33%; */
+    width: 50%;
 }
 .bottomContainer > div > p {
     font-weight: bold;

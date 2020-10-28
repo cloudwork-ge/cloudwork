@@ -36,9 +36,13 @@ export class HeaderComponent implements OnInit {
 
   @Input() transparentWhenTop:boolean = false;
   @Input() showSearchBar:boolean = true;
+
+  showUserSection:boolean = false;
+
   constructor(private router:Router, private commonService:CommonService) { 
 
   }
+
 
   ngOnInit(): void {
     if (!this.transparentWhenTop) this.headerClass = "navbar-scrolled";
@@ -62,14 +66,20 @@ export class HeaderComponent implements OnInit {
   openDialog() {
     
   }
+  clickOutside(elem) {
+    console.log(elem);
+    if (this.showUserSection == true) this.showUserSection = false
+  }
   GoHome() {
     location.href = "/";
   }
   navigate(url) {
     this.router.navigateByUrl(url);
   }
-  showLoginDialog() {
-
+  showUserPanel() {
+    setTimeout(() => {
+      this.showUserSection = true;
+    }, 50);
   }
 }
 

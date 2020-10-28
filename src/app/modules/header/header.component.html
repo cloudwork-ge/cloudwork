@@ -10,15 +10,29 @@
                 <li class="nav-item" *ngIf="!authUser.userLoggedIn()" (click)="showLogin = true; loginTab=1; regType = 2"><a class="nav-link js-scroll-trigger">რეგისტრაცია</a></li>
                 <li class="nav-item" *ngIf="!authUser.userLoggedIn()" (click)="showLogin = true; loginTab=0;"><a class="nav-link js-scroll-trigger">შესვლა</a></li>
                 <li class="nav-item" *ngIf="authUser.userLoggedIn()">
-                    <div class="profileCircle" (click)="navigate('Profile')">{{fullNameInitials}}</div>
+                    <div class="profileCircle" (click)="showUserPanel()">{{fullNameInitials}}</div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<section class="userSection" (clickOutside)="clickOutside($event)" [ngClass]="showUserSection ? 'show' : ''">
+    <p (click)="navigate('/Profile')"><span>
+        <mat-icon>person</mat-icon>
+        პროფილი</span>
+    </p>
+    <p *ngIf="authUser.userType == 1" (click)="navigate('/AddProject')">
+        <span>
+        <mat-icon>add</mat-icon>
+        დაამატე პროექტი</span>
+    </p>
+    <p (click)="logout()"><span>
+        <mat-icon>power_settings_new</mat-icon>
+        გამოსვლა</span></p>
+</section>
 <popup [(visible)]="showLogin" class="loginPopup" [setClass]="'loginPopup'">
     <p-header></p-header>
     <p-content>
-        <app-login class="loginPage" [attr.chooseType]="regType != 0 && regType != 1" [tab]="loginTab" [registrationType]="regType"></app-login>
+        <app-login *ngIf="showLogin" class="loginPage" [attr.chooseType]="regType != 0 && regType != 1" [tab]="loginTab" [registrationType]="regType"></app-login>
     </p-content>
 </popup>

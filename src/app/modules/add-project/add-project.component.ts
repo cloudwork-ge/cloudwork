@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Authuser } from 'src/app/common/authuser';
+import { UserTypes } from 'src/app/models/user.model';
 import { Project } from './project.model';
 
 @Component({
@@ -22,6 +24,8 @@ export class AddProjectComponent implements OnInit {
   showCommonInfo:boolean = true;
   showProjectInfo:boolean = false;
   ngOnInit(): void {
+    if (Authuser.userType != UserTypes.Organization) // მხოლოდ ბიზნესს შეუძლია ამ გვერდზე შემოსვლა
+    location.href = "/";
     setInterval(() => {
       console.log(this.selectedCategory)
     }, 2000);
