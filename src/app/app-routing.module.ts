@@ -7,6 +7,7 @@ import { AuthTest1Component } from './modules/auth-test1/auth-test1.component';
 import { LandingComponent } from './modules/landing/landing.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { ProjectsComponent } from './modules/projects/projects.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"Auth", component:AuthTest1Component, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"Profile", component:ProfileComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"AddProject", component:AddProjectComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
+  {path:"Projects", component:ProjectsComponent, data:{requiresLogin:false}, canActivate:[AccessGuard]},
   {path:"Login", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]},
   {path:"Login/:tab", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]},
   {path:"Login/:tab/:regtype", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]}

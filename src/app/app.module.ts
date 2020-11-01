@@ -25,6 +25,8 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { AddProjectComponent } from './modules/add-project/add-project.component';
 import { AddProjectModule } from './modules/add-project/add-project.module';
 import { MatIconModule } from '@angular/material/icon';
+import { ProjectsComponent } from './modules/projects/projects.component';
+import { ProjectsModule } from './modules/projects/projects.module';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     HttpClientModule,
     ProfileModule,
-    AddProjectModule
+    AddProjectModule,
+    ProjectsModule
   ],
   providers: [AccessGuard],
   bootstrap: [AppComponent]

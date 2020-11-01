@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit {
     
   }
   clickOutside(elem) {
-    console.log(elem);
+    // console.log(elem);
     if (this.showUserSection == true) this.showUserSection = false
   }
   GoHome() {

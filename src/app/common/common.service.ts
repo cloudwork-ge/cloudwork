@@ -60,6 +60,7 @@ export class CommonService {
 
   handleErrors(err) {
     try {
+    try {
       var error = JSON.parse(err.error);
     }
     catch {
@@ -76,6 +77,10 @@ export class CommonService {
 
     if (error.STATUS.ID < 0 && error.STATUS.ID != -5 && error.STATUS.ID != -6)
     alert(error.STATUS.TEXT);
+  }
+  catch {
+
+  }
   }
 
   post(url:string, params:any = null, fnSuccess:Function = null,fnError:Function = null, showLoading:boolean = true, responseTypeJson:boolean = true) {
@@ -108,9 +113,9 @@ export class CommonService {
       if (showLoading)
         this.requestLoader(false);
       console.log("Error: " + err);
-      this.handleErrors(err);
       if (fnError != null)
         fnError(err);
+      this.handleErrors(err);
     });
   }
   getHttpOptions(params:any = {}):Object {

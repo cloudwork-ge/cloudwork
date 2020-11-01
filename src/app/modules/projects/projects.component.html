@@ -1,0 +1,17 @@
+<app-header></app-header>
+<main class="centerArea">
+    <mat-card *ngFor="let project of projects">
+        <div class="jobArea" style="width: 70%;">
+        <div class="job">
+            <h1>{{project.projectName}}</h1>
+            <p>{{project.projectDescription}}</p>
+        </div>
+        <div class="date">
+            <p>{{project.startDate}}</p>
+        </div>
+    </div>
+    <div class="bids" style="width: 30%;">
+        <!-- <button>bid</button> -->
+    </div>
+    </mat-card>
+</main>

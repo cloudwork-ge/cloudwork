@@ -9,21 +9,21 @@
             </mat-panel-title>
             <mat-panel-description>
               {{selectedCategory}} 
-              {{newProject.type}}
+              {{selectedType}}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-card>
             <mat-form-field appearance="outline">
                 <mat-label>პროექტის კატეგორია</mat-label>
-                <mat-select required [(ngModel)]="newProject.category" (ngModelChange)="tryShowingProjectDetails()">
+                <mat-select required [(ngModel)]="newProject.projectCategory" (ngModelChange)="tryShowingProjectDetails()">
                     <mat-option *ngFor="let category of categories" [value]="category.value">{{category.label}}</mat-option>
                 </mat-select>
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>პროექტის ტიპი</mat-label>
-                <mat-select required [(ngModel)]="newProject.type" (ngModelChange)="tryShowingProjectDetails()">
-                    <mat-option value="ერთჯერადი">ერთჯერადი</mat-option>
-                    <mat-option value="ყოველთვიური">ყოველთვიური</mat-option>
+                <mat-select required [(ngModel)]="newProject.projectType" (ngModelChange)="tryShowingProjectDetails()">
+                    <mat-option value=1>ერთჯერადი</mat-option>
+                    <mat-option value=2>ყოველთვიური</mat-option>
                 </mat-select>
               </mat-form-field>
         </mat-card>
@@ -61,11 +61,11 @@
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
-              <mat-form-field appearance="outline" *ngIf="this.newProject.type == 'ყოველთვიური'">
+              <mat-form-field appearance="outline" *ngIf="this.newProject.projectType == 2">
                 <mat-label>თვეების ხანგრძლივობა</mat-label>
                 <input required type="number" [(ngModel)]="newProject.monthsLength" matInput placeholder="შეიყვანეთ ხანგრძლივობა (თვეები)">
               </mat-form-field>
-              <mat-form-field appearance="outline" *ngIf="this.newProject.type == 'ერთჯერადი'">
+              <mat-form-field appearance="outline" *ngIf="this.newProject.projectType == 1">
                 <mat-label>დასრულების თარიღი</mat-label>
                 <input matInput [(ngModel)]="newProject.endDate" (focus)="picker1.open()" [min]="minDate" required [matDatepicker]="picker1">
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -73,7 +73,7 @@
               </mat-form-field>
         </mat-card>
         </mat-expansion-panel>
-      <button mat-button style="background-color: var(--green); padding: 10px 30px; float: right; margin-top: 20px; margin-bottom: 40px; color: white;">შენახვა</button>
+      <button mat-button style="background-color: var(--green); padding: 10px 30px; float: right; margin-top: 20px; margin-bottom: 40px; color: white;" (click)="saveProject()">შენახვა</button>
 
       </mat-accordion>
       
