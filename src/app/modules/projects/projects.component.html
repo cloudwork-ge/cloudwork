@@ -1,17 +1,20 @@
 <app-header></app-header>
 <main class="centerArea">
     <mat-card *ngFor="let project of projects">
-        <div class="jobArea" style="width: 70%;">
-        <div class="job">
-            <h1>{{project.projectName}}</h1>
-            <p>{{project.projectDescription}}</p>
+        <div class="jobArea">
+            <div class="job">
+                <h1 class="projName">{{project.projectName}}</h1>
+                <p class="projCreateDate">{{project.startDate}}</p>
+                <p class="projDescription">{{project.projectDescription}}</p>
+            </div>
         </div>
-        <div class="date">
-            <p>{{project.startDate}}</p>
+        <div class="bids">
+            <p>5 bidi</p>
+            <!-- <button>bid</button> -->
         </div>
-    </div>
-    <div class="bids" style="width: 30%;">
-        <!-- <button>bid</button> -->
-    </div>
+        <div class="criterias">
+            მოთხოვნები
+        </div>
+        <button mat-button class="btnBid">დაბიდე</button>
     </mat-card>
 </main>
