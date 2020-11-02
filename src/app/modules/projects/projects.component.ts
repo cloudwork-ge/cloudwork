@@ -6,7 +6,7 @@ import { Project } from '../add-project/project.model';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
 
@@ -25,5 +25,8 @@ export class ProjectsComponent implements OnInit {
       this.projects = data["rootElement"].DATA.Rows;
     },() => {this.commonService.requestLoader(false)})
   }
-
+  expanded:boolean = false;
+  trackByFn(index, item) {
+    return index;
+  }
 }

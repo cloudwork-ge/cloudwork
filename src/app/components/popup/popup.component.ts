@@ -4,7 +4,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'popup',
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css']
+  styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
 
@@ -83,7 +83,7 @@ export class PopupComponent implements OnInit {
 @Component({
   selector: 'p-header',
   template: '<ng-content></ng-content>',
-  styleUrls: ['./popup.component.css']
+  styleUrls: ['./popup.component.scss']
 })
 export class PopupHeaderComponent implements OnInit {
 
@@ -97,7 +97,7 @@ export class PopupHeaderComponent implements OnInit {
 @Component({
   selector: 'p-content',
   template: '<ng-content></ng-content>',
-  styleUrls: ['./popup.component.css']
+  styleUrls: ['./popup.component.scss']
 })
 export class PopupContentComponent implements OnInit {
 

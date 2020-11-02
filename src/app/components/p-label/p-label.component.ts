@@ -11,7 +11,7 @@ export const NUMBER_VALUE_ACCESSOR:any = {
 @Component({
   selector: 'p-label', /// This is a <p> text with editing function 
   templateUrl: './p-label.component.html',
-  styleUrls: ['./p-label.component.css'],
+  styleUrls: ['./p-label.component.scss'],
   providers:[NUMBER_VALUE_ACCESSOR]
 })
 export class PLabelComponent implements OnInit {

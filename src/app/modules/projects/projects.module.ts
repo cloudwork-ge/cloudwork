@@ -4,6 +4,7 @@ import { ProjectsComponent } from './projects.component';
 import { HeaderModule } from '../header/header.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { ClickStopPropagationDirective } from 'src/app/directives/click-stop-propagation.directive';
 
 
 

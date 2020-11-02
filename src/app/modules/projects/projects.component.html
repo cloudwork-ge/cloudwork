@@ -1,19 +1,22 @@
 <app-header></app-header>
 <main class="centerArea">
-    <mat-card *ngFor="let project of projects">
-        <div class="jobArea">
+    <mat-card *ngFor="let project of projects; trackBy:trackByFn" [attr.expanded]="expanded">
+        <div class="jobArea" (click)="expanded = !expanded">
             <div class="job">
                 <h1 class="projName">{{project.projectName}}</h1>
-                <p class="projCreateDate">{{project.startDate}}</p>
+                <p class="projDeadline">{{project.startDate}} - {{project.endDate}}</p>
                 <p class="projDescription">{{project.projectDescription}}</p>
             </div>
         </div>
-        <div class="bids">
-            <p>5 bidi</p>
+        <div class="jobDetails">
+        <p *ngIf="project.projectType == 2">პროექტის ხანგრძლივობა <br /> {{project.monthsLength}} თვე</p>
+        <p style="font-size: 16px;">ბიუჯეტი: <br /> {{project.budget}} ლარი</p>
+
+            <!-- <p>5 bidi</p> -->
             <!-- <button>bid</button> -->
         </div>
         <div class="criterias">
-            მოთხოვნები
+            {{project.projectCriteria}}
         </div>
         <button mat-button class="btnBid">დაბიდე</button>
     </mat-card>

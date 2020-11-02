@@ -4,7 +4,7 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 @Component({
   selector: 'card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
 

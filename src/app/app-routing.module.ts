@@ -7,6 +7,7 @@ import { AuthTest1Component } from './modules/auth-test1/auth-test1.component';
 import { LandingComponent } from './modules/landing/landing.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { ProfileModule } from './modules/profile/profile.module';
 import { ProjectsComponent } from './modules/projects/projects.component';
 
 

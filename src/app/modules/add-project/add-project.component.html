@@ -22,8 +22,8 @@
               <mat-form-field appearance="outline">
                 <mat-label>პროექტის ტიპი</mat-label>
                 <mat-select required [(ngModel)]="newProject.projectType" (ngModelChange)="tryShowingProjectDetails()">
-                    <mat-option value=1>ერთჯერადი</mat-option>
-                    <mat-option value=2>ყოველთვიური</mat-option>
+                    <mat-option [value]="1">ერთჯერადი</mat-option>
+                    <mat-option [value]="2">ყოველთვიური</mat-option>
                 </mat-select>
               </mat-form-field>
         </mat-card>

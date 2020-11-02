@@ -5,7 +5,7 @@ import { Profile } from './profile';
 
 @Component({
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
 
