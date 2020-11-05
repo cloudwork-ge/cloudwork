@@ -13,6 +13,7 @@ export class ProjectsComponent implements OnInit {
   constructor(private commonService:CommonService, private gridService:GridService) { }
 
   projects:Project[] = [];
+  showBidPopup:boolean = false;
   ngOnInit(): void {
     // this.commonService.post("Project/GetProjects", {},(data)=> {
     //   console.log(data);

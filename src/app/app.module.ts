@@ -27,6 +27,7 @@ import { AddProjectModule } from './modules/add-project/add-project.module';
 import { MatIconModule } from '@angular/material/icon';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { ProjectsModule } from './modules/projects/projects.module';
+import { GeoDatePipe } from './pipes/geodate.pipe';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { ProjectsModule } from './modules/projects/projects.module';
     AddProjectModule,
     ProjectsModule
   ],
-  providers: [AccessGuard],
+  providers: [AccessGuard, ClickStopPropagationDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
