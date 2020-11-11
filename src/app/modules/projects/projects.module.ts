@@ -10,6 +10,7 @@ import { PopupModule } from 'src/app/components/popup/popup.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BidComponent } from './bid/bid.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -22,7 +23,8 @@ import { BidComponent } from './bid/bid.component';
     MatButtonModule,
     PopupModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCheckboxModule
   ]
 })
 export class ProjectsModule { }

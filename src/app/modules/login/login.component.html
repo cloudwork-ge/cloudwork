@@ -66,7 +66,7 @@
           </mat-form-field>
           <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="register()">რეგისტრაცია</button>
         </div>
-        <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="#">წესებს და პირობებს</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="/TermsCondition/0" target="_blank">წესებს და პირობებს</a></mat-checkbox>
       </mat-card>
     </ng-container>
     <ng-container *ngIf="registrationType==1">
@@ -123,9 +123,13 @@
           </mat-form-field>
           <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="register()">რეგისტრაცია</button>
         </div>
-        <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="#">წესებს და პირობებს</a></mat-checkbox>
+        <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="/TermsCondition/1" target="_blank">წესებს და პირობებს</a></mat-checkbox>
       </mat-card>
     </ng-container>
   </ng-container>
 
 </div>
+<!-- <popup [visible]="true">
+  <p-content>
+  </p-content>
+</popup> -->

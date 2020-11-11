@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonService } from 'src/app/common/common.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { PopupModule } from 'src/app/components/popup/popup.module';
+import { TermsConditionModule } from '../terms-condition/terms-condition.module';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     FormsModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    PopupModule
   ],
   exports:[
     LoginComponent

@@ -16,8 +16,8 @@
         </div>
         <div class="bottomContainer">
             <div>
-                <span class="material-icons" style="float: left;width: 60px;font-size: 55px;margin-top: -3px;">person</span>
-                <p>პირადი ნომერი</p>
+                <span class="material-icons" style="float: left;width: 60px;font-size: 55px;margin-top: -3px;">{{currentUser.userType == 0 ? 'person' : 'business'}}</span>
+                <p>{{currentUser.userType == 0 ? 'პირადი ნომერი' : 'საიდენტიფიკაციო კოდი'}}</p>
                 <p-label [(ngModel)]="currentUser.tin" [editControls]="false" [editing]="editing"></p-label>
             </div>
             <!-- <div style="visibility: hidden;">
@@ -31,4 +31,14 @@
             </div>
         </div>
     </div>
+    <div class="projectsContainer">
+    <h1>პროექტები</h1>
+    <div class="project" *ngFor="let project of myProjects; trackBy:trackByFn">
+        <span class="id">{{project.ID}}</span>
+        <span class="bids" style="float: right;">{{project["bidsCount"]}} შეთავაზება</span>
+        <p class="title">{{project.projectName}}</p>
+        <p class="description">{{project.projectDescription}}</p>
+    </div>
+    <div class="loadMore" (click)="loadMore()" *ngIf="showLoadMore">მეტის ჩატვირთვა</div>
+</div>
 </main>

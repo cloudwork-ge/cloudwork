@@ -1,17 +1,18 @@
 <mat-form-field appearance="outline">
     <mat-label>შესთავაზეთ ბიუჯეტი (₾)</mat-label>
-    <input matInput  placeholder="შეიყვანეთ თქვენთვის სასურველი ფასი">
+    <input matInput type="number" [(ngModel)]="bid.budget" placeholder="შეიყვანეთ თქვენთვის სასურველი ფასი">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>ვადა (შეიყვანეთ დღეები)</mat-label>
-    <input matInput  placeholder="რა დროში დაამთავრებთ?">
+    <input matInput type="number" [(ngModel)]="bid.deadlineDays" placeholder="რა დროში დაამთავრებთ?">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>გადახდის პირობა</mat-label>
-    <input matInput  placeholder="">
+    <input matInput [(ngModel)]="bid.paymentCondition" placeholder="">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>კომენტარი</mat-label>
-    <textarea matInput style="height: 70px;" placeholder="კომენტარი"></textarea>
+    <textarea matInput [(ngModel)]="bid.comment" style="height: 70px;" placeholder="კომენტარი"></textarea>
   </mat-form-field>
-<button mat-button style="background-color: var(--blue); color: white; height: 55px;">შეთავაზების გაგზავნა</button>
+<button mat-button style="background-color: var(--blue); color: white; height: 55px; float: right;" (click)="saveBid()">შეთავაზების გაგზავნა</button>
+<mat-checkbox [(ngModel)]="bid.acceptTermsCondition">ვეთანხმები <a href="/TermsCondition/2" target="_blank">კონტრაქტს</a></mat-checkbox>

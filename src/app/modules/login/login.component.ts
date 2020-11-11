@@ -38,8 +38,9 @@ export class LoginComponent implements OnInit {
       alert("გთხოვთ დაეთანხმეთ წესებს და პირობებს");
       return;
     }
+    this.userRegistration.userType = this.registrationType;
     this.commonService.register("Users/Register",this.userRegistration);
   }
-
+  
 }
 

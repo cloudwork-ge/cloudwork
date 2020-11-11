@@ -68,3 +68,45 @@ p {
     background: rgba(255,255,255,0.4);
     border: 1px solid #bbb;
 }
+.profileContainer {
+    float: left;
+    width: inherit;
+}
+.projectsContainer {
+    float: left;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    .project {
+        background: white;
+        padding: 20px;
+        width: 700px;
+        border: 1px solid #d4d4d4;
+        
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .description {
+            font-size: 15px;
+        }
+        .id {
+
+        }
+        .bids {
+            float: right;
+            color: var(--blue);
+            font-size: 15px;
+        }
+    }
+}
+.loadMore {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 40px;
+    line-height: 40px;
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+}

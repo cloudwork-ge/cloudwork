@@ -19,14 +19,14 @@
         <div class="criterias">
             {{project.projectCriteria}}
         </div>
-        <button mat-button class="btnBid" (click)="showBidPopup = true">შეთავაზება</button>
+        <button mat-button class="btnBid" (click)="showBid(project)">შეთავაზება</button>
     </mat-card>
 </main>
-<popup [(visible)]="showBidPopup" *ngIf="showBidPopup">
+<popup [(visible)]="showBidPopup" *ngIf="showBidPopup" [closeOnModalClick]="false">
     <p-header>
         შეთავაზება
     </p-header>
     <p-content>
-        <app-bid></app-bid>
+        <app-bid [projectID]="selectedProject.ID" [startDate]="selectedProject.startDate" [endDate]="selectedProject.endDate" [budget]="selectedProject.budget" (onSuccess)="onSuccessBid()"></app-bid>
     </p-content>
 </popup>

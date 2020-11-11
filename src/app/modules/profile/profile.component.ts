@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
 import { CommonService } from 'src/app/common/common.service';
+import { GridService } from 'src/app/services/grid.service';
+import { Project } from '../add-project/project.model';
 import { Profile } from './profile';
 
 
@@ -11,7 +14,8 @@ export class ProfileComponent implements OnInit {
 
   currentUser:Profile = new Profile();
   editing:boolean = false;
-  constructor(private commonService:CommonService) { 
+  myProjects:Project[] = [];
+  constructor(private commonService:CommonService, private gridService:GridService) { 
     var grid = {};
     this.commonService.post("Profile/GetUserProfile",grid,(data)=> {
       this.currentUser = data.DATA.Rows[0];
@@ -23,7 +27,36 @@ export class ProfileComponent implements OnInit {
       console.log(data);
     });
   }
-  ngOnInit(): void {
-  }
 
+  ngOnInit(): void {
+    this.gridService.webMethod = "Project/GetMyProjects";
+    this.gridService.setMaximumRows(3);
+    this.commonService.requestLoader(true);
+    this.gridService.GetData().subscribe(data => {
+      this.commonService.requestLoader(false);
+      this.myProjects = data["rootElement"].DATA.Rows;
+    },() => {this.commonService.requestLoader(false)})
+  }
+  trackByFn(index,item) {
+    return index;
+  }
+  currentPage:number = 1;
+  showLoadMore:boolean = true;
+  loadMore() {
+    this.gridService.changePage(this.currentPage + 1);
+    this.commonService.requestLoader(true);
+    this.gridService.GetData().subscribe(data => {
+      this.commonService.requestLoader(false);
+      var newData = <Project[]>data["rootElement"].DATA.Rows;
+      if (newData.length == 0) 
+      {
+       this.showLoadMore = false;
+       return; 
+      }
+      newData.forEach(element => {
+        this.myProjects.push(element);
+      })
+      this.currentPage += 1;
+    })
+  }
 }

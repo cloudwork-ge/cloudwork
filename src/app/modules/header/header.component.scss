@@ -26,11 +26,13 @@ color: white !important;
 }
 .profileCircle {
     padding: 15px;
-    border: 2px solid #f5623a;
+    border: 2px solid #ff8d6f;
     border-radius: 140px;
     position: absolute;
     top: 8px;
     background: rgba(255,255,255,0.7);
+    min-width: 60px;
+    text-align: center;
 }
 searchbar {
     border: 1px solid #c3c3c3;

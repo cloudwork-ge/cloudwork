@@ -30,7 +30,7 @@
         <mat-icon>power_settings_new</mat-icon>
         გამოსვლა</span></p>
 </section>
-<popup [(visible)]="showLogin" class="loginPopup" [setClass]="'loginPopup'">
+<popup [(visible)]="showLogin" class="loginPopup" [setClass]="'loginPopup'" [closeOnModalClick]="false">
     <p-header></p-header>
     <p-content>
         <app-login *ngIf="showLogin" class="loginPage" [attr.chooseType]="regType != 0 && regType != 1" [tab]="loginTab" [registrationType]="regType"></app-login>

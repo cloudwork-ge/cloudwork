@@ -27,7 +27,22 @@ export class ProjectsComponent implements OnInit {
     },() => {this.commonService.requestLoader(false)})
   }
   expanded:boolean = false;
+  selectedProject:Project = new Project();
   trackByFn(index, item) {
     return index;
+  }
+  showBid(project:Project) {
+    if (project != null && project.ID > 0) {
+      this.selectedProject = project;
+      this.showBidPopup = true;
+    }
+    else {
+      this.selectedProject = new Project();
+      this.showBidPopup = false;
+    }
+  }
+  onSuccessBid() {
+    this.selectedProject = new Project();
+    this.showBidPopup = false;
   }
 }
