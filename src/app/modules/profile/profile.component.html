@@ -33,11 +33,12 @@
     </div>
     <div class="projectsContainer">
     <h1>პროექტები</h1>
-    <div class="project" *ngFor="let project of myProjects; trackBy:trackByFn">
-        <span class="id">{{project.ID}}</span>
+    <div class="project" *ngFor="let project of myProjects; trackBy:trackByFn" (click)="openProjectDetails(project)">
         <span class="bids" style="float: right;">{{project["bidsCount"]}} შეთავაზება</span>
         <p class="title">{{project.projectName}}</p>
-        <p class="description">{{project.projectDescription}}</p>
+        <!-- <span class="id">{{project.ID}}</span> -->
+
+        <!-- <p class="description">{{project.projectDescription}}</p> -->
     </div>
     <div class="loadMore" (click)="loadMore()" *ngIf="showLoadMore">მეტის ჩატვირთვა</div>
 </div>

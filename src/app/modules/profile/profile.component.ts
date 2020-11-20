@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { CommonService } from 'src/app/common/common.service';
 import { GridService } from 'src/app/services/grid.service';
@@ -15,7 +17,7 @@ export class ProfileComponent implements OnInit {
   currentUser:Profile = new Profile();
   editing:boolean = false;
   myProjects:Project[] = [];
-  constructor(private commonService:CommonService, private gridService:GridService) { 
+  constructor(private commonService:CommonService, private gridService:GridService, private router:Router) { 
     var grid = {};
     this.commonService.post("Profile/GetUserProfile",grid,(data)=> {
       this.currentUser = data.DATA.Rows[0];
@@ -58,5 +60,8 @@ export class ProfileComponent implements OnInit {
       })
       this.currentPage += 1;
     })
+  }
+  openProjectDetails(project:Project) {
+   this.router.navigate(["/ProjectDetails",project.ID])
   }
 }

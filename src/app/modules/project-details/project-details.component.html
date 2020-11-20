@@ -1,0 +1,36 @@
+<app-header></app-header>
+<main class="centerArea">
+    <mat-card [attr.expanded]="true" class="jobDetailsCard">
+        <div class="jobArea">
+            <div class="job">
+                <p style="margin:0;">{{'#' + project.ID}} <span class="statusText">სტატუსი: {{project.statusText}}</span></p>
+                <h1 class="projName">{{project.projectName}}</h1>
+                <p class="projDeadline">{{project.startDateStr}} - {{project.endDateStr}}</p>
+                <p class="projDescription">{{project.projectDescription}}</p>
+            </div>
+        </div>
+        <div class="jobDetails">
+        <p *ngIf="project.projectType == 2">პროექტის ხანგრძლივობა <br /> {{project.monthsLength}} თვე</p>
+        <p style="font-size: 16px;">ბიუჯეტი: <br /> <span style="color: var(--green);">₾{{project.budget}}</span></p>
+
+            <!-- <p>5 bidi</p> -->
+            <!-- <button>bid</button> -->
+        </div>
+        <div class="criterias">
+            {{project.projectCriteria}}
+        </div>
+        <!-- <button mat-button class="btnBid" (click)="showBid(project)">შეთავაზება</button> -->
+    </mat-card>
+    <mat-card class="bids">
+        <h1 class="bidsHeadline">შეთავაზებები ({{this.bids.length}})</h1>
+        <div class="bidsContainer">
+            <div class="bid" *ngFor="let x of bids">
+                <h1 style="font-size:18px">{{x.fullName}}</h1>
+                <p class="comment">{{x.comment}}</p>
+                <p class="deadlineAndBudget" style="font-weight: bold;font-size:15px;margin-top: 20px;margin-bottom: 0;"> ვადა: {{x.deadlineDays}} დღე</p>
+                <p style="margin:0;">ფასი: ₾{{x.budget}}</p>
+                <button class="acceptBid" style="margin-top:10px" (click)="acceptBid(x.ID)">დათანხმება</button>
+            </div>
+        </div>
+    </mat-card>
+</main>

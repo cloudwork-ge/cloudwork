@@ -3,7 +3,8 @@ export class Project {
     public projectCategory:number = 0; // e.g ბუღალტერია, ელექტროობა და ა.შ
     // private _projectType: number = 0; // ერთჯერადი სამუშაო ან ყოველთვიური
     public projectType:number = 0;
-
+    public status:number = 0;
+    public statusText:string = "";
     public projectName:string = "";
     public projectDescription:string = "";
     public projectCriteria:string = "";

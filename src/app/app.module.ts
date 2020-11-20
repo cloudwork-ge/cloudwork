@@ -28,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { ProjectsModule } from './modules/projects/projects.module';
 import { GeoDatePipe } from './pipes/geodate.pipe';
+import { ProjectDetailsComponent } from './modules/project-details/project-details.component';
+import { ProjectDetailsModule } from './modules/project-details/project-details.module';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { GeoDatePipe } from './pipes/geodate.pipe';
     HttpClientModule,
     ProfileModule,
     AddProjectModule,
-    ProjectsModule
+    ProjectsModule,
+    ProjectDetailsModule
   ],
   providers: [AccessGuard, ClickStopPropagationDirective],
   bootstrap: [AppComponent]

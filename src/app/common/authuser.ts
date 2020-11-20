@@ -7,66 +7,25 @@ import { HttpClient } from '@angular/common/http';
 
 
 // import {InjectorInstance} from './app.module';
-export class bxWorkgroup {
-     public get ID():number {
-        var commonService = AppInjector.get(CommonService);
-        return Number(commonService.getCookie("bxWgID"));
-     };
-     public set ID(value:number) {
-        var commonService = AppInjector.get(CommonService);
-        commonService.setCookie("bxWgID",Number(value));
-     };
-     name:string;
-     numberOfMembers:number;
-     subjectName:string;
-     ownerID:Number;
-     users:bxWgUsers[] = [];
-     public get active():Boolean {
-         return (this.ID != null && this.ID > 0)
-     }
-     public onWorkGroupChange:Function[] = [];
-}
-export class bxWgUsers {
-    public ID:number;
-    public name:string;
-    public role:string;
-}
+
 export class Authuser {
+    public static ID:number;
     public static fullName:string;
     public static get token():string {
         var commonService = AppInjector.get(CommonService);
         return commonService.getCookie("at").toString();
     }
-    public static get bxToken():string {
-        var commonService = AppInjector.get(CommonService);
-        return commonService.getCookie("bxat").toString();
-    }
-    public static get bxUserID():number {
-        var commonService = AppInjector.get(CommonService);
-        return Number(commonService.getCookie("bxID"));
-    };
-    public static workgroup:bxWorkgroup = new bxWorkgroup();
 
     public static modules:Module[];
     public static isAdmin:boolean = null;
     public static userType:UserTypes = UserTypes.Freelancer;
-    static deactivateWorkgroup() {
-        this.workgroup = new bxWorkgroup();
-    }
 
    static checkUser() {
         return this.token.length > 0  // if someone is logged in Go ahead. if not redirect to login
     }
-    static checkBxUser() {
-        return this.bxToken.length > 0  // if someone is logged in Go ahead. if not redirect to login
-    }
 
    static userLoggedIn() {
         return this.checkUser();
-    }
-
-    static bxUserLoggedIn() {
-        return this.checkBxUser();
     }
 
    static async getUserData(onSuccess:Function = null, forceGet:boolean = false) {
@@ -84,8 +43,10 @@ export class Authuser {
     
         var headers = commonService.getHttpOptions();
         await http.post(commonService.baseUrl + "Users/GetUserData",null,headers).toPromise().then((data) => {
-            Authuser.fullName = data["rootElement"]["DATA"].userData.fullName;
-            Authuser.userType = data["rootElement"]["DATA"].userData.userType;
+             Authuser.ID = data["rootElement"]["DATA"].userData.ID;
+             Authuser.fullName = data["rootElement"]["DATA"].userData.fullName;
+             Authuser.userType = data["rootElement"]["DATA"].userData.userType;
+            
             if (onSuccess != null) onSuccess(data["rootElement"]["DATA"].userData);
 
         }, 
