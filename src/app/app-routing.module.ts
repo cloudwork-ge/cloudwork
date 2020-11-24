@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:"Profile", component:ProfileComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"AddProject", component:AddProjectComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"Projects", component:ProjectsComponent},
-  {path:"ProjectDetails/:id", component:ProjectDetailsComponent},
+  {path:"ProjectDetails/:id", component:ProjectDetailsComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"TermsCondition/:id", component:TermsConditionComponent},
   {path:"Login", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]},
   {path:"Login/:tab", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]},

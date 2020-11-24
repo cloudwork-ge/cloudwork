@@ -14,6 +14,6 @@ export class Project {
     public endDateStr:string = "";
     public monthsLength:number = 0;
     public budget:number = 0;
-
+    public workerFullName:string = "";
     public expanded:boolean = false;
 }

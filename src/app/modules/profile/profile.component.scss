@@ -1,3 +1,6 @@
+h1,h2,p:not(.material-icons),span:not(.material-icons) {
+    font-family: FiraGO-Regular;
+}
 .centerArea {
     height: 100%;
     width: 1024px;
@@ -81,14 +84,30 @@ p {
         background: white;
         padding: 20px;
         width: 700px;
+        height:160px;
         border: 1px solid #d4d4d4;
         cursor: pointer;
+        .detailsBtn {
+            transition: 0.2s all ease-in;
+            opacity:0;
+        }
+        &:hover .detailsBtn {
+            opacity: 1;
+        }
         .title {
             font-size: 20px;
             font-weight: bold;
         }
         .description {
             font-size: 15px;
+            height: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .budget {
+            font-size: 18px;
+            font-family: FiraGO-Book;
         }
         .id {
 
@@ -99,7 +118,28 @@ p {
             font-size: 15px;
         }
     }
+    .tabsPanel {
+        border-bottom: 1px solid #bfbfbf;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: 40px;
+        display: flex;
+        .tab {
+            margin-right: 50px;
+            font-size: 20px;
+            font-family: 'FiraGO-Light';
+            cursor: pointer;
+            &:hover {
+                border-bottom: 1px solid;
+            }
+        }
+        .tab.active {
+            font-family: 'FiraGO-Regular';
+            border-bottom: 2px solid;
+        }
+    }
 }
+
 .loadMore {
     text-align: center;
     margin-top: 10px;

@@ -1,9 +1,10 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { TransitionCheckState } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { CommonService } from 'src/app/common/common.service';
-import { GridService } from 'src/app/services/grid.service';
+import { DataType, FilterParam, FilterType, GridService } from 'src/app/services/grid.service';
 import { Project } from '../add-project/project.model';
 import { Profile } from './profile';
 
@@ -21,27 +22,43 @@ export class ProfileComponent implements OnInit {
     var grid = {};
     this.commonService.post("Profile/GetUserProfile",grid,(data)=> {
       this.currentUser = data.DATA.Rows[0];
+      if (this.currentUser.userType == 0) this.changeTab(1)
+      else if (this.currentUser.userType == 1) this.changeTab(0)
+      else this.tabActiveIndex = -1;
     })
   }
   saveProfile() {
     console.log(this.currentUser);
     this.commonService.post("Profile/ChangeProfile",this.currentUser,(data)=> {
-      console.log(data);
+      location.reload();
     });
   }
 
   ngOnInit(): void {
+    
+  }
+
+  trackByFn(index,item) {
+    return index;
+  }
+
+  getMyProjects(tab:number) {
     this.gridService.webMethod = "Project/GetMyProjects";
     this.gridService.setMaximumRows(3);
+    var fp = new FilterParam();
+    fp.DataType = DataType.Number;
+    fp.FieldName = "status";
+    fp.FilterValue = tab.toString();
+    fp.FilterType = FilterType.Equal;
+
+    this.gridService.applyFilter(fp);
     this.commonService.requestLoader(true);
     this.gridService.GetData().subscribe(data => {
       this.commonService.requestLoader(false);
       this.myProjects = data["rootElement"].DATA.Rows;
     },() => {this.commonService.requestLoader(false)})
   }
-  trackByFn(index,item) {
-    return index;
-  }
+
   currentPage:number = 1;
   showLoadMore:boolean = true;
   loadMore() {
@@ -63,5 +80,14 @@ export class ProfileComponent implements OnInit {
   }
   openProjectDetails(project:Project) {
    this.router.navigate(["/ProjectDetails",project.ID])
+  }
+
+  tabActiveIndex:number = 0;
+  changeTab(activeIndex) {
+    this.tabActiveIndex = activeIndex;
+    this.getMyProjects(this.tabActiveIndex);
+  }
+  tabActiveClass(index) {
+    return this.tabActiveIndex == index ? "active" : "";
   }
 }

@@ -14,6 +14,7 @@ export class ProjectDetailsComponent implements OnInit {
   projectId:number = 0;
   project:Project = new Project();
   bids:Bid[] = [];
+  
   constructor(private commonService:CommonService, private route:ActivatedRoute) {
     
     this.route.params.subscribe(p=> {
@@ -24,23 +25,31 @@ export class ProjectDetailsComponent implements OnInit {
     var proj = new Project();
     proj.ID = Number(this.projectId);
     this.commonService.post("Project/GetProjectDetails",proj, data => {
-      this.project = <Project>data.DATA.Rows[0];
-      console.log(this.project);
-    })
+      this.project = <Project>data.DATA;
+      if (this.project == null || this.project.ID == null) {
+        alert("პროექტი ვერ მოიძებნა");
+        location.href = "/";
+      }
+    },null,true);
     this.commonService.post("Project/GetProjectBids",{projectId:this.projectId}, data => {
       this.bids = <Bid[]>data.DATA.Rows;
-      console.log(this.bids);
     })
    }
-   
+
   ngOnInit(): void {
     console.log(Authuser.ID);
     Authuser.getUserData((data) => {
       console.log(data);
     })
   }
-  acceptBid(ID:number) {  
-
+  acceptBid(ID:number) {
+    if (!confirm("გსურთ დაეთანხმოთ ამ შეთავაზებას?")) return;
+    var bid = new Bid();
+    bid.ID = ID;
+    this.commonService.post("Project/AcceptBid",bid, data => {
+      alert(data.STATUS.TEXT);
+      location.reload();
+    })
   }
 
 }
