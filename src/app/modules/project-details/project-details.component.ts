@@ -42,13 +42,13 @@ export class ProjectDetailsComponent implements OnInit {
       console.log(data);
     })
   }
-  acceptBid(ID:number) {
+  acceptBid(ID:number, userID:number) {
     if (!confirm("გსურთ დაეთანხმოთ ამ შეთავაზებას?")) return;
     var bid = new Bid();
     bid.ID = ID;
     this.commonService.post("Project/AcceptBid",bid, data => {
       alert(data.STATUS.TEXT);
-      location.reload();
+      location.href = "/Profile/" + userID;
     })
   }
 

@@ -1,7 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { TransitionCheckState } from '@angular/material/checkbox';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { element } from 'protractor';
 import { CommonService } from 'src/app/common/common.service';
 import { DataType, FilterParam, FilterType, GridService } from 'src/app/services/grid.service';
@@ -18,15 +18,41 @@ export class ProfileComponent implements OnInit {
   currentUser:Profile = new Profile();
   editing:boolean = false;
   myProjects:Project[] = [];
-  constructor(private commonService:CommonService, private gridService:GridService, private router:Router) { 
-    var grid = {};
+  filterUserID:number = 0;
+  constructor(private commonService:CommonService, private gridService:GridService, private router:Router, private activeRoute:ActivatedRoute) { 
+    this.activeRoute.params.subscribe(param => {
+      if (param["id"] != null) 
+        this.filterUserID = Number(param["id"]);
+
+      this.getProfile();
+    })
+  }
+
+  getProfile() {
+    var grid = {CustomParams:[{}] = [{}]};
+    if (this.filterUserID > 0) {
+      var fp = new FilterParam();
+      fp.FieldName = "ProfileUserID";
+      fp.FilterValue = this.filterUserID.toString();
+      fp.DataType = DataType.Number;
+      fp.FilterType = FilterType.Equal;
+      grid.CustomParams.push(fp);
+    }
+    
     this.commonService.post("Profile/GetUserProfile",grid,(data)=> {
+      var rows:[] = data.DATA.Rows;
+      if (rows.length == 0) {
+        alert("მომხმარებელი არ მოიძებნა");
+        location.href = "/";
+        return;
+      }
       this.currentUser = data.DATA.Rows[0];
       if (this.currentUser.userType == 0) this.changeTab(1)
       else if (this.currentUser.userType == 1) this.changeTab(0)
       else this.tabActiveIndex = -1;
     })
   }
+
   saveProfile() {
     console.log(this.currentUser);
     this.commonService.post("Profile/ChangeProfile",this.currentUser,(data)=> {
@@ -55,7 +81,7 @@ export class ProfileComponent implements OnInit {
     this.commonService.requestLoader(true);
     this.gridService.GetData().subscribe(data => {
       this.commonService.requestLoader(false);
-      this.myProjects = data["rootElement"].DATA.Rows;
+      this.myProjects = <Project[]>data["rootElement"].DATA.Rows;
     },() => {this.commonService.requestLoader(false)})
   }
 

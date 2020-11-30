@@ -30,6 +30,7 @@ import { ProjectsModule } from './modules/projects/projects.module';
 import { GeoDatePipe } from './pipes/geodate.pipe';
 import { ProjectDetailsComponent } from './modules/project-details/project-details.component';
 import { ProjectDetailsModule } from './modules/project-details/project-details.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { ProjectDetailsModule } from './modules/project-details/project-details.
     ProjectsModule,
     ProjectDetailsModule
   ],
-  providers: [AccessGuard, ClickStopPropagationDirective],
+  providers: [{provide:AccessGuard}, {provide:ClickStopPropagationDirective},{provide:MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

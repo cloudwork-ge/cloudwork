@@ -1,152 +1,162 @@
-h1,h2,p:not(.material-icons),span:not(.material-icons) {
-    font-family: FiraGO-Regular;
+h1,
+h2,
+p:not(.material-icons),
+span:not(.material-icons) {
+  font-family: FiraGO-Regular;
 }
 .centerArea {
-    height: 100%;
-    width: 1024px;
-    padding-top: 20px;
-    margin: auto;
-    margin-top: 75px;
+  height: 100%;
+  width: 1024px;
+  padding-top: 20px;
+  margin: auto;
+  margin-top: 75px;
 }
 .profilePicture {
-    object-fit: cover;
-    width: 150px;
-    height: 150px;
-    border-radius: 250px;
-    float: left ;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 250px;
+  float: left;
 }
 .nameContainer {
-    float: left;
-    width: 600px;
-    padding: 10px 20px;
+  float: left;
+  width: 600px;
+  padding: 10px 20px;
 }
 .nameContainer p {
-    padding: 0;
-    margin:0;
+  padding: 0;
+  margin: 0;
 }
 ::ng-deep .nameContainer .name * {
-    font-family: FiraGO-Medium;
-    font-size: 19px;
+  font-family: FiraGO-Medium;
+  font-size: 19px;
 }
 ::ng-deep p-label p {
-    margin: 0;
+  margin: 0;
 }
 p-label {
-    display: flex;
+  display: flex;
 }
 .nameContainer .email {
-    font-size: 13px;
-    color: var(--blue);
+  font-size: 13px;
+  color: var(--blue);
 }
 .nameContainer .description {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 ::ng-deep .nameContainer .description input {
-    width: 550px;
+  width: 550px;
 }
 p {
-    font-family: FiraGO-Book;
+  font-family: FiraGO-Book;
 }
 .bottomContainer {
-    float: left;
-    margin-top: 40px;
-    clear: both;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  float: left;
+  margin-top: 40px;
+  clear: both;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .bottomContainer > div {
-    /* display: inline-flex;÷ */
-    /* width: 33%; */
-    width: 50%;
+  /* display: inline-flex;÷ */
+  /* width: 33%; */
+  width: 50%;
 }
 .bottomContainer > div > p {
-    font-weight: bold;
-    font-family: FiraGO-Regular;
+  font-weight: bold;
+  font-family: FiraGO-Regular;
 }
 .bottomContainer > div > p {
-    margin: 0;
+  margin: 0;
 }
 ::ng-deep p-label input {
-    background: rgba(255,255,255,0.4);
-    border: 1px solid #bbb;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid #bbb;
 }
 .profileContainer {
-    float: left;
-    width: inherit;
+  float: left;
+  width: inherit;
 }
 .projectsContainer {
-    float: left;
-    margin-top: 70px;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-    .project {
-        background: white;
-        padding: 20px;
-        width: 700px;
-        height:160px;
-        border: 1px solid #d4d4d4;
-        cursor: pointer;
-        .detailsBtn {
-            transition: 0.2s all ease-in;
-            opacity:0;
-        }
-        &:hover .detailsBtn {
-            opacity: 1;
-        }
-        .title {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .description {
-            font-size: 15px;
-            height: auto;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .budget {
-            font-size: 18px;
-            font-family: FiraGO-Book;
-        }
-        .id {
-
-        }
-        .bids {
-            float: right;
-            color: var(--blue);
-            font-size: 15px;
-        }
+  float: left;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  .project {
+    background: white;
+    padding: 20px;
+    width: 700px;
+    height: 160px;
+    border: 1px solid #d4d4d4;
+    cursor: pointer;
+    .detailsBtn {
+      background: var(--blue);
+      color: white;
+      height: 40px;
+      width: 160px;
+      float: right;
+      transition: 0.2s all ease-in;
+      opacity: 0;
+      line-height: inherit !important;
+      padding:0;
+      padding-left: 10px;
     }
-    .tabsPanel {
-        border-bottom: 1px solid #bfbfbf;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        height: 40px;
-        display: flex;
-        .tab {
-            margin-right: 50px;
-            font-size: 20px;
-            font-family: 'FiraGO-Light';
-            cursor: pointer;
-            &:hover {
-                border-bottom: 1px solid;
-            }
-        }
-        .tab.active {
-            font-family: 'FiraGO-Regular';
-            border-bottom: 2px solid;
-        }
+    &:hover .detailsBtn {
+      opacity: 1;
     }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 15px;
+      height: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .budget {
+      font-size: 18px;
+      font-family: FiraGO-Book;
+    }
+    .id {
+    }
+    .bids {
+      float: right;
+      color: var(--blue);
+      font-size: 15px;
+    }
+  }
+  .tabsPanel {
+    border-bottom: 1px solid #bfbfbf;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    display: flex;
+    .tab {
+      margin-right: 50px;
+      font-size: 20px;
+      font-family: "FiraGO-Light";
+      cursor: pointer;
+      &:hover {
+        border-bottom: 1px solid;
+      }
+    }
+    .tab.active {
+      font-family: "FiraGO-Regular";
+      border-bottom: 2px solid;
+    }
+  }
 }
 
 .loadMore {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    height: 40px;
-    line-height: 40px;
-    color: var(--blue);
-    text-decoration: underline;
-    cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 40px;
+  color: var(--blue);
+  text-decoration: underline;
+  cursor: pointer;
 }

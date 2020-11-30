@@ -8,7 +8,7 @@
                 <!-- <span style="font-size: 13px;float: right;">&nbsp;&nbsp;&nbsp;&nbsp; მომხმარებლის ტიპი: {{currentUser.userTypeTxt}}</span> -->
             <!-- </p> -->
             <p class="email">{{currentUser.email}}</p>
-            <p-label class="description" placeholder="შეიყვანეთ აღწერა" [(ngModel)]="currentUser.description" [editControls]="false" [editing]="editing">bsydgoyuahbhoivfoyabilhfvooagilbhjibaf hou fohagoyu gohfg aog ohifb ahg fouy oyfvv aohv ofshuv osav ouv dos</p-label>
+            <p-label class="description" placeholder="შეიყვანეთ აღწერა" [(ngModel)]="currentUser.description" [editControls]="false" [editing]="editing"></p-label>
         </div>
         <div style="margin-bottom:40px">
             <button *ngIf="!editing" class="mat-button" style="background: #f9c42e;color: white;height: 50px;width: 160px;" mat-button (click)="editing = true">შეცვლა</button>
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div class="projectsContainer">
+    <div class="projectsContainer" *ngIf="filterUserID == 0">
     <h1>პროექტები</h1>
     <div class="tabsPanel">
         <span class="tab" [ngClass]="tabActiveClass(0)" (click)="changeTab(0)" *ngIf="currentUser.userType == 1">ღია</span>
@@ -39,13 +39,13 @@
         <span class="tab" [ngClass]="tabActiveClass(2)" (click)="changeTab(2)">დასრულებული</span>
     </div>
     <div class="project" *ngFor="let project of myProjects; trackBy:trackByFn" (click)="openProjectDetails(project)">
-        <span class="bids" style="float: right;">{{project["bidsCount"]}} შეთავაზება</span>
-        <p class="title">{{project.projectName}}&nbsp;&nbsp;<span style="font-size: 15px;">({{project.projectType == 0 ? 'ერთჯერადი' : 'ყოველთვიური'}})</span></p>
+        <span class="bids" style="float: right;" *ngIf="tabActiveIndex == 0">{{project["bidsCount"]}} შეთავაზება</span>
+        <p class="title">{{project.projectName}}&nbsp;&nbsp;<span style="font-size: 15px;">({{project.projectType == 0 ? 'ერთჯერადი' : 'ყოველთვიური'}})</span><span style="font-size: 15px; float: right;" *ngIf="tabActiveIndex == 1 && project.workerFullName.length > 0">შემსრულებელი: <a clickStopPropagation href="/Profile/{{project.workerUserId}}">{{project.workerFullName}}</a></span></p>
         <!-- <span class="id">{{project.ID}}</span> -->
 
         <p class="description">{{project.projectDescription}}</p>
         <p class="budget" style="float: left;margin-top: 10px;">ბიუჯეტი: ₾{{project.budget}}</p>
-        <button class="mat-button detailsBtn" style="background: var(--orange);color: white;height: 40px;width: 160px;float: right;" mat-button><mat-icon style="float: left; margin-left: 10px;">more_horiz</mat-icon>დეტალურად</button>
+        <button class="mat-button detailsBtn" mat-button><mat-icon style="float: left; margin-left: 10px;">more_horiz</mat-icon>დეტალურად</button>
     </div>
     <div class="loadMore" (click)="loadMore()" *ngIf="showLoadMore">მეტის ჩატვირთვა</div>
 </div>

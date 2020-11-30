@@ -3,7 +3,7 @@
     <mat-card [attr.expanded]="true" class="jobDetailsCard" *ngIf="project.ID > 0">
         <div class="jobArea">
             <div class="job">
-                <p style="margin:0;margin-bottom: 15px;">{{'#' + project.ID}} <span class="statusText">{{project.statusText}}<span *ngIf="project.status == 1 || project.status == 2">({{project.workerFullName}})</span> </span></p>
+                <p style="margin:0;margin-bottom: 15px;">{{'#' + project.ID}} <span class="statusText">{{project.statusText}}<span *ngIf="project.status == 1 || project.status == 2">(<a href="Profile/1">{{project.workerFullName}}</a>)</span> </span></p>
                 <h1 class="projName">{{project.projectName}}&nbsp;&nbsp;<span style="font-size: 15px;">({{project.projectType == 0 ? 'ერთჯერადი' : 'ყოველთვიური'}})</span></h1>
                 <p class="projDeadline">{{project.startDateStr}} - {{project.endDateStr}}</p>
                 <p class="projDescription">{{project.projectDescription}}</p>
@@ -29,7 +29,7 @@
                 <p class="comment">{{x.comment}}</p>
                 <p class="deadlineAndBudget" style="font-weight: bold;font-size:15px;margin-top: 20px;margin-bottom: 0;"> ვადა: {{x.deadlineDays}} დღე</p>
                 <p style="margin:0;">ფასი: ₾{{x.budget}}</p>
-                <button class="acceptBid" style="margin-top:10px" (click)="acceptBid(x.ID)">დათანხმება</button>
+                <button class="acceptBid" style="margin-top:10px" (click)="acceptBid(x.ID,x.userID)">დათანხმება</button>
             </div>
         </div>
     </mat-card>

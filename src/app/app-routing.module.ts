@@ -18,6 +18,7 @@ const routes: Routes = [
   {path:"", component:LandingComponent, canActivate:[AccessGuard]},
   // {path:"Auth", component:AuthTest1Component, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"Profile", component:ProfileComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
+  {path:"Profile/:id", component:ProfileComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"AddProject", component:AddProjectComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"Projects", component:ProjectsComponent},
   {path:"ProjectDetails/:id", component:ProjectDetailsComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},

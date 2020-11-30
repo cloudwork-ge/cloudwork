@@ -40,19 +40,19 @@
           </mat-expansion-panel-header>
           <mat-card>
             <mat-form-field appearance="outline">
-                <mat-label>დავალების სახელი</mat-label>
+                <mat-label>პროექტის სახელი</mat-label>
                 <input required [(ngModel)]="newProject.projectName" matInput placeholder="შეიყვანეთ დავალების სახელი">
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>დავალების დახასიათება</mat-label>
+                <mat-label>პროექტის დახასიათება</mat-label>
                 <textarea required [(ngModel)]="newProject.projectDescription" style="height: 120px;" matInput placeholder="შეიყვანეთ დახასიათება"></textarea>
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>მოთხოვნები</mat-label>
+                <mat-label>საკვალიფიკაციო მოთხოვნები</mat-label>
                 <input required [(ngModel)]="newProject.projectCriteria" matInput placeholder="შეიყვანეთ მოთხოვნები">
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>ბიუჯეტი (ლარი)</mat-label>
+                <mat-label>ბიუჯეტი (ლარი დღგ-ს გარეშე)</mat-label>
                 <input required type="number" [(ngModel)]="newProject.budget" matInput placeholder="შეიყვანეთ მოთხოვნები">
               </mat-form-field>
               <mat-form-field appearance="outline">

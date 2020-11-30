@@ -12,15 +12,15 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @HostListener("window:scroll") onScroll(e:Event): void {
-    if (!this.transparentWhenTop) {
-      return;
-    }
+  // @HostListener("window:scroll") onScroll(e:Event): void {
+  //   // if (!this.transparentWhenTop) {
+  //   //   return;
+  //   // }
 
-    if (window.scrollY > 10) this.headerClass = "navbar-scrolled"
-    else this.headerClass = "";
-  }
-  headerClass:string = "";
+  //   // if (window.scrollY > 10) this.headerClass = "navbar-scrolled"
+  //   // else this.headerClass = "";
+  // }
+  headerClass:string = "navbar-scrolled";
   private _showLogin: boolean = false;
   public get showLogin(): boolean {
     return this._showLogin;
@@ -34,19 +34,16 @@ export class HeaderComponent implements OnInit {
   authUser = Authuser;
   fullNameInitials:string = "";
 
-  @Input() transparentWhenTop:boolean = false;
   @Input() showSearchBar:boolean = true;
 
   showUserSection:boolean = false;
 
   constructor(private router:Router, private commonService:CommonService) { 
-
+    this.showSearchBar = false;
   }
 
 
   ngOnInit(): void {
-    if (!this.transparentWhenTop) this.headerClass = "navbar-scrolled";
-    else this.headerClass = "";
     
     // console.log(Authuser.token);
     // console.log(Authuser.fullName);
