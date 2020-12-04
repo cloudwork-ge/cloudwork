@@ -1,5 +1,6 @@
 export class Project {
     public ID:number = 0;
+    public userId:number = 0;
     public projectCategory:number = 0; // e.g ბუღალტერია, ელექტროობა და ა.შ
     // private _projectType: number = 0; // ერთჯერადი სამუშაო ან ყოველთვიური
     public projectType:number = 0;
@@ -16,5 +17,7 @@ export class Project {
     public budget:number = 0;
     public workerFullName:string = "";
     public workerUserId:number = 0;
+    public doneRequested:number = 0;
+    public doneRequestDate:Date;
     public expanded:boolean = false;
 }

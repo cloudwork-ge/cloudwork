@@ -1,5 +1,6 @@
 import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { url } from 'inspector';
 import { Authuser } from 'src/app/common/authuser';
 import { CommonService } from 'src/app/common/common.service';
 import { Project } from '../add-project/project.model';
@@ -35,7 +36,7 @@ export class ProjectDetailsComponent implements OnInit {
       this.bids = <Bid[]>data.DATA.Rows;
     })
    }
-
+  
   ngOnInit(): void {
     console.log(Authuser.ID);
     Authuser.getUserData((data) => {
@@ -50,6 +51,26 @@ export class ProjectDetailsComponent implements OnInit {
       alert(data.STATUS.TEXT);
       location.href = "/Profile/" + userID;
     })
+  }
+  ProjectDone() {
+    if (!confirm("ნამდვილად გსურთ პროექტის დასრულება?")) return;
+    var method = this.projectMine() ? "ProjectDoneOwner" : "ProjectDoneFreelancer"
+    this.commonService.post("Project/" + method,this.project, data => {
+      alert(data.STATUS.TEXT);
+      location.reload();
+    })
+  }
+  projectMine() {
+    if (Authuser.ID == this.project.userId) return true;
+    return false;
+  }
+  canDone() {
+    if (this.project.status != 1) return false;
+
+    if (this.projectMine()) {
+      if (this.project.doneRequested == 1) return true;
+    }
+    else return true;
   }
 
 }

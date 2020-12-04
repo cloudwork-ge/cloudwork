@@ -16,7 +16,7 @@ import { TermsConditionComponent } from './modules/terms-condition/terms-conditi
 
 const routes: Routes = [
   {path:"", component:LandingComponent, canActivate:[AccessGuard]},
-  // {path:"Auth", component:AuthTest1Component, data:{requiresLogin:true}, canActivate:[AccessGuard]},
+  {path:"Auth", component:AuthTest1Component},
   {path:"Profile", component:ProfileComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"Profile/:id", component:ProfileComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"AddProject", component:AddProjectComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},

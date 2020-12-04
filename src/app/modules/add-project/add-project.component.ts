@@ -63,6 +63,7 @@ export class AddProjectComponent implements OnInit {
 
     this.commonService.post("Project/AddProject",this.newProject,(data) => {
       alert(data.STATUS.TEXT);
+      location.href = "/";
       // this.newProject.category = -1;
     },(err)=> {
       var error = err.error;

@@ -19,6 +19,11 @@
         <div class="criterias">
             {{project.projectCriteria}}
         </div>
+        <div class="actions">
+            <!-- <button mat-button style="background-color: red; color: white; padding:7px 20px;" *ngIf="!project.doneRequested">წაშლა</button> -->
+            <p style="color:var(--orange)" *ngIf="project.status == 1 && project.doneRequested">შემსურულებელმა მოითხოვა პროექტის დასრულება</p>
+            <button mat-button style="background-color: var(--blue); color: white; padding:7px 20px; margin-left: 10px;" (click)="ProjectDone()" *ngIf="canDone()">პროექტის დასრულება</button>
+        </div>
         <!-- <button mat-button class="btnBid" (click)="showBid(project)">შეთავაზება</button> -->
     </mat-card>
     <mat-card class="bids" *ngIf="project.ID > 0 && project.status == 0">
