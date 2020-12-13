@@ -21,7 +21,7 @@
                 <li class="nav-item" *ngIf="!authUser.userLoggedIn()" (click)="showLogin = true; loginTab=1; regType = 2"><a class="nav-link js-scroll-trigger">რეგისტრაცია</a></li>
                 <li class="nav-item" *ngIf="!authUser.userLoggedIn()" (click)="showLogin = true; loginTab=0;"><a class="nav-link js-scroll-trigger">შესვლა</a></li>
                 <li class="nav-item" *ngIf="authUser.userLoggedIn()">
-                    <div class="profileCircle" (click)="showUserPanel()">{{fullNameInitials}}</div>
+                    <div class="profileCircle" (click)="showUserPanel()">{{fullName}}</div>
                 </li>
             </ul>
         </div>
@@ -47,3 +47,6 @@
         <app-login *ngIf="showLogin" class="loginPage" [attr.chooseType]="regType != 0 && regType != 1" [tab]="loginTab" [registrationType]="regType"></app-login>
     </p-content>
 </popup>
+<footer *ngIf="showFooter">
+    <div class="registrationSuggestion">თუ ჯერ არ ხარ დარეგისტრირებული <a style="color: var(--orange); cursor: pointer;" (click)="showLogin = true; loginTab=1; regType = 2">დარეგისტრირდი</a><i class="material-icons closeFooter" (click)="showFooter = false">close</i></div>
+</footer>

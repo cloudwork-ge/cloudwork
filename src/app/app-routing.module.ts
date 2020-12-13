@@ -6,6 +6,7 @@ import { AddProjectComponent } from './modules/add-project/add-project.component
 import { AuthTest1Component } from './modules/auth-test1/auth-test1.component';
 import { LandingComponent } from './modules/landing/landing.component';
 import { LoginComponent } from './modules/login/login.component';
+import { MessagesComponent } from './modules/messages/messages.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { ProfileModule } from './modules/profile/profile.module';
 import { ProjectDetailsComponent } from './modules/project-details/project-details.component';
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path:"AddProject", component:AddProjectComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"Projects", component:ProjectsComponent},
   {path:"ProjectDetails/:id", component:ProjectDetailsComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
+  {path:"Messages", component:MessagesComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
+  {path:"Messages/:id", component:MessagesComponent, data:{requiresLogin:true}, canActivate:[AccessGuard]},
   {path:"TermsCondition/:id", component:TermsConditionComponent},
   {path:"Login", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]},
   {path:"Login/:tab", component:LoginComponent, data:{requiresLogout:true}, canActivate:[AccessGuard]},

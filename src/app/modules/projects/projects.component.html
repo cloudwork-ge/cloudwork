@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header #header></app-header>
 <main class="centerArea">
     <mat-card *ngFor="let project of projects; trackBy:trackByFn" [attr.expanded]="project.expanded" (click)="project.expanded = !project.expanded">
         <div class="jobArea">

@@ -1,3 +1,17 @@
+<header class="loginHeader" *ngIf="showHeader">
+  <a href="/">
+    <span style="
+    float: left;
+    font-family: 'FiraGO-Light';
+    color: var(--blue);
+">cloud</span>
+    <span style="
+    font-family: 'FiraGO-BoldItalic';
+    color: #0660c1;
+    float: left;
+">work</span>
+</a>
+</header>
 <div class="registrationContainer">
   <div class="headerText">
     <i *ngIf="tab == 1 && (registrationType == 0 || registrationType == 1)"
@@ -22,15 +36,15 @@
   <ng-container *ngIf="tab==1">
     <ng-container *ngIf="registrationType != 0 && registrationType != 1">
       <mat-card style="text-align: center;">
-        <h1 style="font-size:20px; margin-top: 10px;">დარეგისტრირდი</h1>
+        <h1 style="font-size:20px; margin-top: 10px;">რეგისტრაცია</h1>
         <div class="chooseTypeContainer">
           <div class="chooseUserType" (click)="registrationType = 1">
             <i class="material-icons chooseEntity">business</i>
-            <p>ბიზნესად</p>
+            <p>დამქირავებელი</p>
           </div>
           <div class="chooseUserType" (click)="registrationType = 0">
             <i class="material-icons chooseEntity">person</i>
-            <p>ფრილანსერად</p>
+            <p>ფრილანსერი</p>
           </div>
         </div>
       </mat-card>
@@ -73,8 +87,8 @@
       <mat-card>
         <div style="float: left; width: 50%; padding-right: 20px;">
           <mat-form-field appearance="outline">
-            <mat-label>კომპანიის დასახელება</mat-label>
-            <input matInput [(ngModel)]="userRegistration.fullName" placeholder="შეიყვანეთ კომპანიის დასახელება">
+            <mat-label>დამქირავებლის დასახელება</mat-label>
+            <input matInput [(ngModel)]="userRegistration.fullName" placeholder="შეიყვანეთ დამქირავებლის დასახელება">
             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
             <!-- <mat-hint>მაგ. შ </mat-hint> -->
           </mat-form-field>

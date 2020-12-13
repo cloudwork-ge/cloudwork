@@ -1,3 +1,21 @@
+header.loginHeader {
+  position: fixed;
+    top: 0;
+    width: 100%;
+    height: 69px;
+    padding: 16px;
+    background: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    a > span {
+      font-family: "BPG Nino Mtavruli" !important;
+      font-size: 27px;
+    }
+    z-index: 1;
+}
 h1 {
   font-family: "BPG Nino Mtavruli";
 }
@@ -20,6 +38,9 @@ mat-form-field {
   margin-top: 150px;
   display: grid;
   /* float: left; */
+}
+.headerText {
+  min-height: 55px;
 }
 .headerText h1 {
 }

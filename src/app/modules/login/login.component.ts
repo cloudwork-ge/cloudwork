@@ -28,7 +28,9 @@ export class LoginComponent implements OnInit {
   
   userRegistration:Registration = new Registration();
   userLogin:LoginCredentials = new LoginCredentials();
+  showHeader:boolean = false;
   ngOnInit(): void {
+    this.showHeader = this.acRoute.snapshot.url[0]?.path == "Login" ? true : false;
   }
   login() {
     this.commonService.authenticate("Users/Authenticate",this.userLogin)    

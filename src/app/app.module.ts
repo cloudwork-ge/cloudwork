@@ -31,6 +31,7 @@ import { GeoDatePipe } from './pipes/geodate.pipe';
 import { ProjectDetailsComponent } from './modules/project-details/project-details.component';
 import { ProjectDetailsModule } from './modules/project-details/project-details.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MessagesComponent } from './modules/messages/messages.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     AppComponent,
     AuthTest1Component,
     LoaderComponent,
-    ModalComponent
+    ModalComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

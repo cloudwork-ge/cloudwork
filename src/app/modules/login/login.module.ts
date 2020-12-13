@@ -12,6 +12,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { PopupModule } from 'src/app/components/popup/popup.module';
 import { TermsConditionModule } from '../terms-condition/terms-condition.module';
+import { HeaderModule } from '../header/header.module';
 
 
 @NgModule({
