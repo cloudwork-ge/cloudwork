@@ -1,0 +1,98 @@
+.messagesContainer {
+  height: 600px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 2px;
+  box-shadow: 0px 0px 5px #d2d2d2;
+  .chatHeads {
+    width: 35%;
+    background-color: white;
+    overflow: auto;
+    .chatHead {
+      height: auto;
+      padding: 20px;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: 60px auto auto;
+      grid-template-rows: 30px 30px;
+      align-items: center;
+      column-gap: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($color: white, $amount: 7);
+      }
+      .profilePhoto {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        object-fit: cover;
+        width: 60px;
+        height: 60px;
+        border-radius: 250px;
+      }
+      .fullName {
+        font-size: 15px;
+        text-align: left;
+      }
+      .date {
+        font-size: 14px;
+        text-align: right;
+      }
+      .messageReview {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+  .chatDetails {
+    width: 65%;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 100px auto 100px;
+    .messages {
+      overflow: auto;
+    }
+    .messageBox {
+      float: left;
+      clear: both;
+      margin-bottom: 15px;
+    }
+    .messageBox.MyMessage {
+      float: right;
+      .messageNode .sender {
+        text-align: right;
+      }
+      .messageNode .messageText {
+        background: var(--blue);
+        color: white;
+      }
+    }
+    .messageNode {
+      display: grid;
+      grid-template-rows: 20px auto;
+      overflow: hidden;
+      max-width: 400px;
+      padding: 0px 15px;
+      gap: 5px;
+      .sender {
+        padding: 0px 15px;
+      }
+      .messageText {
+        padding: 15px;
+        border-radius: 1000px;
+        background-color: #eaeaea;
+      }
+      .sender ~ .messageText {
+        grid-row-start: 2;
+        grid-row-end: 2 !important;
+      }
+      .messageText {
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+    }
+  }
+}

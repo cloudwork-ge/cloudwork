@@ -32,6 +32,9 @@
         <button class="mat-button" style="background: #f9c42e;color:white" mat-button (click)="login()">შესვლა</button>
       </div>
     </mat-card>
+    <p *ngIf="showHeader" style="
+    text-align: center;
+    margin-top: 20px;">თუ ჯერ არ ხარ რეგისტრირებული <a href="/Login/1/3">დარეგისტრირდი</a></p>
   </ng-container>
   <ng-container *ngIf="tab==1">
     <ng-container *ngIf="registrationType != 0 && registrationType != 1">
@@ -140,6 +143,9 @@
         <mat-checkbox [(ngModel)]="userRegistration.acceptTermsCondition">ვეთანხმები <a href="/TermsCondition/1" target="_blank">წესებს და პირობებს</a></mat-checkbox>
       </mat-card>
     </ng-container>
+    <p *ngIf="showHeader" style="
+      text-align: center;
+      margin-top: 20px;">თუ უკვე ხარ დარეგისტრირებული გაიარე <a href="/Login/0">ავტორიზაცია</a></p>
   </ng-container>
 
 </div>

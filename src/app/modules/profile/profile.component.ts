@@ -76,8 +76,19 @@ export class ProfileComponent implements OnInit {
     fp.FieldName = "status";
     fp.FilterValue = tab.toString();
     fp.FilterType = FilterType.Equal;
-
     this.gridService.applyFilter(fp);
+
+    this.gridService.grid.CustomParams = [];
+
+    if (this.filterUserID > 0) {
+      var fp = new FilterParam();
+      fp.FieldName = "ProfileUserID";
+      fp.FilterValue = this.filterUserID.toString();
+      fp.DataType = DataType.Number;
+      fp.FilterType = FilterType.Equal;
+      this.gridService.grid.CustomParams.push(fp);
+    }
+
     this.commonService.requestLoader(true);
     this.gridService.GetData().subscribe(data => {
       this.commonService.requestLoader(false);

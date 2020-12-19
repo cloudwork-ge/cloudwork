@@ -46,6 +46,7 @@ export class Grid {
   public MaximumRows:number = 10;
   public Page:number = 1;
   public FilterParams:FilterParam[] = [];
+  public CustomParams:FilterParam[] = [];
   public view:string = "";
   constructor() {}
   public GetData() {
