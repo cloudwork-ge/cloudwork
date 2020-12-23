@@ -3,15 +3,21 @@
     <mat-card [attr.expanded]="true" class="jobDetailsCard" *ngIf="project.ID > 0">
         <div class="jobArea">
             <div class="job">
-                <p style="margin:0;margin-bottom: 15px;">{{'#' + project.ID}} <span class="statusText">{{project.statusText}}<span *ngIf="project.status == 1 || project.status == 2">(<a href="Profile/1">{{project.workerFullName}}</a>)</span> </span></p>
-                <h1 class="projName">{{project.projectName}}&nbsp;&nbsp;<span style="font-size: 15px;">({{project.projectType == 0 ? 'ერთჯერადი' : 'ყოველთვიური'}})</span></h1>
+                <p style="margin:0;margin-bottom: 15px;">{{'#' + project.ID}} <span
+                        class="statusText">{{project.statusText}}<span
+                            *ngIf="project.status == 1 || project.status == 2">(<a
+                                href="Profile/1">{{project.workerFullName}}</a>)</span> </span></p>
+                <h1 class="projName">{{project.projectName}}&nbsp;&nbsp;<span
+                        style="font-size: 15px;">({{project.projectType == 0 ? 'ერთჯერადი' : 'ყოველთვიური'}})</span>
+                </h1>
                 <p class="projDeadline">{{project.startDateStr}} - {{project.endDateStr}}</p>
                 <p class="projDescription">{{project.projectDescription}}</p>
             </div>
         </div>
         <div class="jobDetails">
-        <p *ngIf="project.projectType == 2">პროექტის ხანგრძლივობა <br /> {{project.monthsLength}} თვე</p>
-        <p style="font-size: 16px;">ბიუჯეტი: <br /> <span style="color: var(--green);">₾{{project.budget}}</span></p>
+            <p *ngIf="project.projectType == 2">პროექტის ხანგრძლივობა <br /> {{project.monthsLength}} თვე</p>
+            <p style="font-size: 16px;">ბიუჯეტი: <br /> <span style="color: var(--green);">₾{{project.budget}}</span>
+            </p>
 
             <!-- <p>5 bidi</p> -->
             <!-- <button>bid</button> -->
@@ -21,8 +27,16 @@
         </div>
         <div class="actions">
             <!-- <button mat-button style="background-color: red; color: white; padding:7px 20px;" *ngIf="!project.doneRequested">წაშლა</button> -->
-            <p style="color:var(--orange)" *ngIf="project.status == 1 && project.doneRequested">შემსურულებელმა მოითხოვა პროექტის დასრულება</p>
-            <button mat-button style="background-color: var(--blue); color: white; padding:7px 20px; margin-left: 10px;" (click)="ProjectDone()" *ngIf="canDone()">პროექტის დასრულება</button>
+            <p style="color:var(--orange)" *ngIf="project.status == 1 && project.doneRequested">შემსურულებელმა მოითხოვა
+                პროექტის დასრულება</p>
+            <button mat-button style="background-color: var(--blue); color: white; padding:7px 20px; margin-left: 10px;"
+                (click)="ProjectDone()" *ngIf="canDone()">პროექტის დასრულება</button>
+            <button mat-button
+                style="background-color: var(--green); color: white; padding:7px 20px; margin-left: 10px;"
+                (click)="MessageToFreelancer()" *ngIf="project.status == 1">
+                <mat-icon style="margin-right: 10px;">chat</mat-icon>
+                მიწერე შემსრულებელს
+            </button>
         </div>
         <!-- <button mat-button class="btnBid" (click)="showBid(project)">შეთავაზება</button> -->
     </mat-card>
@@ -32,7 +46,9 @@
             <div class="bid" *ngFor="let x of bids">
                 <h1 style="font-size:18px">{{x.fullName}}</h1>
                 <p class="comment">{{x.comment}}</p>
-                <p class="deadlineAndBudget" style="font-weight: bold;font-size:15px;margin-top: 20px;margin-bottom: 0;"> ვადა: {{x.deadlineDays}} დღე</p>
+                <p class="deadlineAndBudget"
+                    style="font-weight: bold;font-size:15px;margin-top: 20px;margin-bottom: 0;"> ვადა:
+                    {{x.deadlineDays}} დღე</p>
                 <p style="margin:0;">ფასი: ₾{{x.budget}}</p>
                 <button class="acceptBid" style="margin-top:10px" (click)="acceptBid(x.ID,x.userID)">დათანხმება</button>
             </div>

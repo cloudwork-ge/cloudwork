@@ -1,75 +1,81 @@
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> -->
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title></title>
-        <!-- Favicon-->
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <app-header [showSearchBar]="false"></app-header>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container h-100">
-                <div class="row h-100" style="width:640px;">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold" style="font-size: 2em;">პლატფორმა მცირე ბიზნესის სტატუსის მქონე ფრილანსერებისთვის</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">დაზოგე 17% მდე</p>
-                        <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">განათავსე პროექტი</a> -->
-                        <button mat-button style="background:#fff; padding: 20px; background-color: var(--blue); color: white;" (click)="navigate('/AddProject')">განათავსე პროექტი</button>
-                        <p style="width: 190px;
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title></title>
+    <!-- Favicon-->
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <app-header [showSearchBar]="false"></app-header>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100" style="width:640px;">
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-uppercase text-white font-weight-bold" style="font-size: 2em;">პლატფორმა ინდ.
+                        მეწარმის სტატუსის მქონე ფრილანსერებისთვის</h1>
+                    <hr class="divider my-4" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 font-weight-light mb-5"></p>
+                    <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">განათავსე პროექტი</a> -->
+                    <button mat-button
+                        style="background:#fff; padding: 20px; background-color: var(--blue); color: white;"
+                        (click)="navigate('/AddProject')">განათავსე პროექტი</button>
+                    <p style="width: 190px;
                         float: right;
-                        padding: 20px 10px; cursor:pointer; color: white;font-size: 15px;" (click)="navigate('/Projects')">მოძებნე სამუშაო</p>
-                    </div>
+                        padding: 20px 10px; cursor:pointer; color: white;font-size: 15px;"
+                        (click)="navigate('/Projects')">მოძებნე სამუშაო</p>
                 </div>
             </div>
-        </header>
-        <!-- About-->
+        </div>
+    </header>
+    <!-- About-->
 
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <h2 class="text-center mt-0">მუშაობის პრინციპი</h2>
-                <hr class="divider my-4" />
-                <div class="row" style="justify-content: center;">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="circle_add_icon myIcon"></i>
-                            <h3 class="h4 mb-2">დაამატე პროექტი</h3>
-                            <!-- <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p> -->
-                        </div>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <h2 class="text-center mt-0">მუშაობის პრინციპი</h2>
+            <hr class="divider my-4" />
+            <div class="row" style="justify-content: center;">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="circle_add_icon myIcon"></i>
+                        <h3 class="h4 mb-2">დაამატე პროექტი</h3>
+                        <!-- <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p> -->
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="myIcon messages_icon"></i>
-                            <h3 class="h4 mb-2">მიიღე შემოთავაზება</h3>
-                            <!-- <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p> -->
-                        </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="myIcon messages_icon"></i>
+                        <h3 class="h4 mb-2">მიიღე შემოთავაზება</h3>
+                        <!-- <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p> -->
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="myIcon done_icon"></i>
-                            <h3 class="h4 mb-2">აირჩიე ფრილანსერი</h3>
-                            <!-- <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p> -->
-                        </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <i class="myIcon done_icon"></i>
+                        <h3 class="h4 mb-2">აირჩიე ფრილანსერი</h3>
+                        <!-- <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p> -->
                     </div>
-                    <!-- <div class="col-lg-3 col-md-6 text-center">
+                </div>
+                <!-- <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-heart text-primary mb-4"></i>
                             <h3 class="h4 mb-2">მარტივად გააფორმე კონტრაქტი</h3>
                             <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
                         </div>
                     </div> -->
-                </div>
             </div>
-        </section>
-        <!-- Portfolio-->
-        <!-- <div id="portfolio">
+        </div>
+    </section>
+    <!-- Portfolio-->
+    <!-- <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
                     <div class="col-lg-4 col-sm-6">
@@ -129,17 +135,18 @@
                 </div>
             </div>
         </div> -->
-        <!-- Call to action-->
-        <!-- <section class="page-section bg-dark text-white">
+    <!-- Call to action-->
+    <!-- <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
                 <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
             </div>
         </section> -->
-        <!-- Footer-->
+    <!-- Footer-->
 
-        </body>
-        </html>
-        <!-- Bootstrap core JS-->
-        <!-- Core theme JS-->
-        <!-- <script src="js/scripts.js"></script> -->
+</body>
+
+</html>
+<!-- Bootstrap core JS-->
+<!-- Core theme JS-->
+<!-- <script src="js/scripts.js"></script> -->
