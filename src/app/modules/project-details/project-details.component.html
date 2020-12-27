@@ -33,9 +33,9 @@
                 (click)="ProjectDone()" *ngIf="canDone()">პროექტის დასრულება</button>
             <button mat-button
                 style="background-color: var(--green); color: white; padding:7px 20px; margin-left: 10px;"
-                (click)="MessageToFreelancer()" *ngIf="project.status == 1">
+                (click)="Message()" *ngIf="project.status == 1">
                 <mat-icon style="margin-right: 10px;">chat</mat-icon>
-                მიწერე შემსრულებელს
+                მიწერე {{UserType() == 1 ? "შემსრულებელს" : "დამსაქმებელს"}}
             </button>
         </div>
         <!-- <button mat-button class="btnBid" (click)="showBid(project)">შეთავაზება</button> -->

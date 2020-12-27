@@ -2,60 +2,40 @@
 <main class="centerArea">
     <div class="messagesContainer">
         <div class="chatHeads">
-            <div class="chatHead">
+            <div class="chatHead" [ngClass]="openedChat && chat.id == openedChat.id ? 'active' : ''"
+                *ngFor="let chat of recentChats" (click)="openChat(chat)">
                 <img src="../../../assets/img/portfolio/fullsize/1.jpg" alt="" class="profilePhoto" />
-                <span class="fullName">გიორგი მჭედლიშვილი</span>
-                <span class="date">10-10-2020</span>
-                <div class="messageReview">hello world ghisgo igasohifgoy gdsoag oyadgo</div>
+                <span class="fullName">{{chat.name}}</span>
+                <span class="date">{{chat.lastMessageDateStr}}</span>
+                <div class="messageReview">{{chat.lastMessage}}</div>
             </div>
         </div>
         <div class="chatDetails">
-            <div class="userTitle">
+            <app-loader [invert]="true" *ngIf="showLoader"></app-loader>
+            <div class="userTitle" *ngIf="openedChat">
                 <img src="../../../assets/img/portfolio/fullsize/1.jpg" alt="" class="profilePhoto">
-                <span _ngcontent-jdf-c136="" class="fullName">გიორგი მჭედლიშვილი</span>
+                <span _ngcontent-jdf-c136="" class="fullName">{{openedChat.name}}</span>
             </div>
-            <div class="messages">
-                <div class="messageBox">
+            <div class="messages" *ngIf="openedChat" #messagesView>
+                <!-- <div class="messageBox">
                     <div class="messageNode">
                         <div class="sender">Gigi</div>
                         <div class="messageText">blablbliablabl</div>
                     </div>
-                </div>
-                <div class="messageBox">
+                </div> -->
+                <div class="messageBox" [ngClass]="isMyMessage(message) ? 'MyMessage' : ''"
+                    *ngFor="let message of messages">
                     <div class="messageNode">
-                        <div class="sender">Gigi</div>
-                        <div class="messageText">blablbliablabl</div>
+                        <!-- <div class="sender">{{message.fromUserName}}</div> -->
+                        <div class="messageText">{{message.message}}</div>
                     </div>
                 </div>
-                <div class="messageBox">
-                    <div class="messageNode">
-                        <div class="sender">Gigi</div>
-                        <div class="messageText">blablbliablabl</div>
-                    </div>
-                </div>
-                <div class="messageBox MyMessage">
-                    <div class="messageNode">
-                        <div class="sender">Gigi</div>
-                        <div class="messageText">blablbliablabl</div>
-                    </div>
-                </div>
-                <div class="messageBox MyMessage">
-                    <div class="messageNode">
-                        <div class="sender">Gigi</div>
-                        <div class="messageText">blablbliablabl</div>
-                    </div>
-                </div>
-                <div class="messageBox MyMessage">
-                    <div class="messageNode">
-                        <div class="sender">Gigi</div>
-                        <div class="messageText">blablbliablabl</div>
-                    </div>
-                </div>
-
             </div>
-            <div class="writeMessage">
-                <textarea required matInput placeholder="მიწერე"></textarea>
+            <div class="writeMessage" *ngIf="openedChat">
+                <textarea required matInput placeholder="მიწერე" [(ngModel)]="typedText"
+                    (keydown.enter)="$event.preventDefault()" (keyup.enter)="sendMessage()"></textarea>
             </div>
+            <h1 *ngIf="!openedChat" class="chooseChatTxt">აირჩიე ჩატი</h1>
         </div>
     </div>
 </main>

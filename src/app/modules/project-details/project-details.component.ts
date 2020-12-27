@@ -7,6 +7,7 @@ import { ActivatedRoute } from "@angular/router";
 import { url } from "inspector";
 import { Authuser } from "src/app/common/authuser";
 import { CommonService } from "src/app/common/common.service";
+import { UserTypes } from "src/app/models/user.model";
 import { Project } from "../add-project/project.model";
 import { Bid } from "../projects/bid/bid";
 
@@ -88,7 +89,12 @@ export class ProjectDetailsComponent implements OnInit {
       if (this.project.doneRequested == 1) return true;
     } else return true;
   }
-  MessageToFreelancer() {
-    location.href = "/Messages/" + this.project.workerUserId;
+  Message() {
+    if (Authuser.userType == UserTypes.Organization)
+      location.href = "/Messages/" + this.project.workerUserId;
+    else location.href = "/Messages/" + this.project.userId;
+  }
+  UserType() {
+    return Authuser.userType;
   }
 }
