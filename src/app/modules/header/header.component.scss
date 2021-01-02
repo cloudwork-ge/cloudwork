@@ -1,117 +1,142 @@
-.nav-item a, span, p {
-    font-family: "BPG Nino Mtavruli" !important;
+.nav-item a,
+span,
+p {
+  font-family: "BPG Nino Mtavruli" !important;
 }
 .nav-item a {
-    font-size: 16px !important;
+  font-size: 16px !important;
 }
 .nav-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 ::ng-deep .loginPage .registrationContainer {
-    margin: 0px !important;
+  margin: 0px !important;
 }
-::ng-deep .loginPage .registrationContainer h1{
-color: white !important;
+::ng-deep .loginPage .registrationContainer h1 {
+  color: white !important;
 }
-::ng-deep .loginPage[chooseType="true"] mat-card h1, ::ng-deep .loginPage[chooseType="true"] mat-card i{
-    color: black !important;
+::ng-deep .loginPage[chooseType="true"] mat-card h1,
+::ng-deep .loginPage[chooseType="true"] mat-card i {
+  color: black !important;
 }
 ::ng-deep .loginPopup.popup {
-    width: 540px !important;
-    background-color: transparent !important;
-    grid-template-rows: 30px auto !important;
+  width: 540px !important;
+  background-color: transparent !important;
+  grid-template-rows: 30px auto !important;
 }
 ::ng-deep .loginPopup.popup i {
-    color: white;
+  color: white;
 }
 #navbarResponsive {
-    margin-right: 100px;
+  margin-right: 100px;
 }
 .nav-logo {
-    margin: 0;
-    padding: 0;
-    font-size: 25px;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
 }
 .profileCircle {
-    padding: 15px;
-    border: 2px solid var(--blue);
-    border-radius: 140px;
-    position: absolute;
-    top: 8px;
-    background: rgba(255,255,255,0.7);
-    min-width: 60px;
-    text-align: center;
-    font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 200px;
-    text-overflow: ellipsis;
+  padding: 15px;
+  border: 2px solid var(--blue);
+  border-radius: 140px;
+  position: absolute;
+  top: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  min-width: 60px;
+  text-align: center;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
+  text-overflow: ellipsis;
 }
 
 searchbar {
-    border: 1px solid #c3c3c3;
-    border-radius: 5px;
-    height: 40px;
-    width: 300px;
-    margin-left: 20px;
+  border: 1px solid #c3c3c3;
+  border-radius: 5px;
+  height: 40px;
+  width: 300px;
+  margin-left: 20px;
 }
 .userSection {
-    position: fixed;
-    background: white;
-    height: 100%;
-    right: -320px;
-    width: 320px;
-    z-index: 9999;
-    transition: 0.2s all ease-out;
-    box-shadow: -5px 0px 5px rgba(0,0,0,0.25);
-    top: 0;
+  position: fixed;
+  background: white;
+  height: 100%;
+  right: -320px;
+  width: 320px;
+  z-index: 9999;
+  transition: 0.2s all ease-out;
+  box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.25);
+  top: 0;
 }
 .userSection.show {
-    right: 0px;
+  right: 0px;
 }
 .userSection p {
-    height: 80px;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    cursor: pointer;
-    display: flex;
+  height: 80px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
 }
 .userSection p:hover {
-    background-color: rgba(0,0,0,0.12);
+  background-color: rgba(0, 0, 0, 0.12);
 }
 .userSection p span {
-    margin:auto;
+  margin: auto;
 }
 .userSection mat-icon {
-    float: left;
-    margin-top: -2px;
-    margin-right: 10px;
+  float: left;
+  margin-top: -2px;
+  margin-right: 10px;
 }
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background: transparent;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .registrationSuggestion {
-        background: rgba($color: #000, $alpha: 0.7);
-        width: 800px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        color: white;
-        border-radius: 30px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .registrationSuggestion {
+    background: rgba($color: #000, $alpha: 0.7);
+    width: 800px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    border-radius: 30px;
+  }
+  .closeFooter {
+    float: right;
+    margin-right: 20px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+}
+.msgsIcon {
+  &:hover {
+    opacity: 0.7;
+  }
+  .chatIcon {
+    color: var(--blue);
+    ~ .unreadChatsCount {
+      margin-left: -10px;
+      margin-top: -3px;
+      background: var(--red);
+      color: white;
+      border-radius: 50px;
+      padding: 5px;
+      padding-top: 1px;
+      font-size: 10px;
+      height: 15px;
+      width: 15px;
+      text-align: center;
+      font-family: "FiraGO-Bold" !important;
     }
-    .closeFooter {
-        float: right;
-        margin-right: 20px;
-        margin-top: 8px;
-        cursor: pointer;
-    }
+  }
 }

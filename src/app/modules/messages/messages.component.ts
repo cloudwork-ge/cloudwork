@@ -47,15 +47,23 @@ export class MessagesComponent implements OnInit {
       this.showLoader = false;
       this.messages = x;
       this.scrollToBottom();
+      this.chatService
+        .readMessage(Number(x[x.length - 1].id), chat.id)
+        .toPromise();
     });
   }
   openChatByUserID(id: number) {
     this.showLoader = true;
-    this.chatService.createOrGetChat(id).subscribe((chat) => {
-      this.showLoader = false;
-      this.openChat(chat);
-      this.getRecentChats();
-    });
+    this.chatService.createOrGetChat(id).subscribe(
+      (chat) => {
+        this.showLoader = false;
+        this.openChat(chat);
+        this.getRecentChats();
+      },
+      (err) => {
+        this.showLoader = false;
+      }
+    );
   }
   getRecentChats() {
     this.chatService.getRecentChats().subscribe(
@@ -76,7 +84,7 @@ export class MessagesComponent implements OnInit {
 
     this.chatService.sendMessage(mesasgeText, this.openedChat.id).subscribe();
     let message: IMessage = {
-      ID: 0,
+      id: 0,
       fromUserID: this.authUser.ID,
       fromUserName: this.authUser.fullName,
       message: mesasgeText,
@@ -94,5 +102,9 @@ export class MessagesComponent implements OnInit {
       var msgsView = this.messagesView.nativeElement as HTMLElement;
       msgsView.scrollBy(null, msgsView.scrollHeight);
     }, 1);
+  }
+
+  isUnread(chatID) {
+    return this.authUser.unreadChats.includes(chatID);
   }
 }

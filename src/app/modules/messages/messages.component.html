@@ -3,7 +3,7 @@
     <div class="messagesContainer">
         <div class="chatHeads">
             <div class="chatHead" [ngClass]="openedChat && chat.id == openedChat.id ? 'active' : ''"
-                *ngFor="let chat of recentChats" (click)="openChat(chat)">
+                [attr.unread]="isUnread(chat.id)" *ngFor="let chat of recentChats" (click)="openChat(chat)">
                 <img src="../../../assets/img/portfolio/fullsize/1.jpg" alt="" class="profilePhoto" />
                 <span class="fullName">{{chat.name}}</span>
                 <span class="date">{{chat.lastMessageDateStr}}</span>

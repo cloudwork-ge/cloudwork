@@ -63,4 +63,11 @@ export class ChatService {
       this.options
     );
   }
+  readMessage(messageID: number, chatID: number) {
+    return this.http.post(
+      this.baseUrl + "Messages/MarkAsRead",
+      { chatID: chatID, id: messageID },
+      this.options
+    );
+  }
 }

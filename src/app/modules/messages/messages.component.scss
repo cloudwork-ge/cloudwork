@@ -4,6 +4,11 @@
   display: flex;
   gap: 2px;
   box-shadow: 0px 0px 5px #d2d2d2;
+  *[unread="true"] > span,
+  *[unread="true"] > div {
+    font-family: "FiraGO-Bold" !important;
+    font-weight: bold;
+  }
   .profilePhoto {
     object-fit: cover;
     width: 60px;
@@ -41,7 +46,6 @@
       .fullName {
         font-size: 15px;
         text-align: left;
-        font-weight: bold;
       }
       .date {
         font-size: 14px;

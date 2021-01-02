@@ -11,9 +11,10 @@ export interface IChat {
   lastMessageDate: Date | string;
   lastMessageDateStr: string;
   createDate: Date;
+  read: number;
 }
 export interface IMessage {
-  ID: number;
+  id: number;
   fromUserID: number;
   fromUserName: string;
   toUserID?: number;
